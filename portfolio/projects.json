@@ -1,0 +1,107 @@
+[
+  {
+    "id": "wing-rib",
+    "tag": "Aerospace · Structures",
+    "title": "Lightweight Wing Rib Design",
+    "summary": "Topology-optimized aluminum rib assembly for a small UAV, reducing mass by 34% while meeting all fatigue and ultimate load requirements.",
+    "details": "This project involved the full structural design cycle for a UAV wing rib — from initial load case definition through topology optimization, detailed CAD, FEA validation, and manufacturing review.\n\nThe rib was designed to carry combined bending, shear, and torsional loads from a 4g maneuver envelope. A SIMP topology optimization was run in ANSYS to identify material-inefficient regions, and the resulting geometry was rebuilt as a manufacturable part with fillet radii compliant with machining constraints.\n\nFinal mass reduction was 34% vs. the baseline solid rib, with a minimum safety factor of 1.5 on ultimate load across all critical sections. The design was validated against FAR 23 fatigue spectrum loading with no crack initiation predicted within the 10,000 flight hour life target.",
+    "specs": [
+      { "key": "Material", "value": "Al 7075-T6" },
+      { "key": "Mass reduction", "value": "34% vs. baseline" },
+      { "key": "Safety factor", "value": "1.5 (ultimate)" },
+      { "key": "Life target", "value": "10,000 flight hours" },
+      { "key": "Standard", "value": "FAR 23" }
+    ],
+    "pills": ["CATIA V5", "ANSYS", "FEA", "Topology Opt.", "FAR 23"],
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/yourusername/wing-rib" }
+    ]
+  },
+  {
+    "id": "sensor-fusion",
+    "tag": "Electrical · Embedded",
+    "title": "Sensor Fusion Navigation Board",
+    "summary": "4-layer PCB integrating IMU, barometer and GPS for autonomous vehicle state estimation. Custom firmware with real-time Kalman filter at 400 Hz.",
+    "details": "Designed a compact sensor fusion board for a ground-based autonomous vehicle platform. The board integrates an ICM-42688 6-axis IMU, BMP390 barometer, and u-blox M9N GPS module on a 4-layer stackup with careful ground plane partitioning to avoid noise coupling between the RF and analog sections.\n\nFirmware runs on an STM32H743 at 480 MHz. A 15-state error-state Kalman filter fuses IMU pre-integration with GPS position/velocity updates, running at 400 Hz with a worst-case execution time of 1.8 ms. The board communicates over CAN FD to the vehicle's main computer.\n\nThe board went through two hardware spins. Rev A identified a layout issue causing IMU vibration sensitivity from motor PWM harmonics — resolved in Rev B by adding a mechanical isolation mount and low-pass filter on the power rail.",
+    "specs": [
+      { "key": "MCU", "value": "STM32H743 @ 480 MHz" },
+      { "key": "IMU", "value": "ICM-42688 (6-axis)" },
+      { "key": "Filter rate", "value": "400 Hz" },
+      { "key": "Interface", "value": "CAN FD" },
+      { "key": "Layers", "value": "4-layer PCB" }
+    ],
+    "pills": ["KiCad", "STM32", "C / RTOS", "Kalman Filter", "CAN FD"],
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/yourusername/sensor-fusion" },
+      { "label": "Schematic (PDF)", "url": "https://yoursite.com/schematic.pdf" }
+    ]
+  },
+  {
+    "id": "truss-solver",
+    "tag": "Structural · Software",
+    "title": "Bridge Truss Analysis Tool",
+    "summary": "Python-based matrix stiffness solver for 2D and 3D truss structures with automated load combination generation and PDF report output.",
+    "details": "A from-scratch implementation of the direct stiffness method for 2D and 3D pin-jointed trusses, written in Python with NumPy as the only non-standard dependency.\n\nThe solver handles arbitrary geometry, multiple load cases, support settlement, and thermal expansion. Load combinations are generated automatically from a simple YAML input following Eurocode or ASCE 7 format (user-selectable). Outputs include member forces, reactions, nodal displacements, and utilization ratios.\n\nA matplotlib-based visualizer renders the deformed shape and color-codes members by utilization. A PDF report is auto-generated with a summary table, geometry diagram, and governing load case per member.\n\nThe tool has been used to check coursework problems and to pre-size members before running full FEA on more complex models.",
+    "specs": [
+      { "key": "Language", "value": "Python 3.11" },
+      { "key": "Method", "value": "Direct stiffness" },
+      { "key": "Max members", "value": "500+ (tested)" },
+      { "key": "Standards", "value": "Eurocode / ASCE 7" },
+      { "key": "Output", "value": "PDF + CSV" }
+    ],
+    "pills": ["Python", "NumPy", "FEM", "Matplotlib", "Eurocode"],
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/yourusername/truss-solver" }
+    ]
+  },
+  {
+    "id": "heat-exchanger",
+    "tag": "Mechanical · Manufacturing",
+    "title": "Additive-Optimised Heat Exchanger",
+    "summary": "Gyroid lattice heat exchanger designed for SLM printing, achieving 2.1× higher surface area-to-volume ratio versus conventional plate design.",
+    "details": "Investigated the use of triply periodic minimal surface (TPMS) geometries — specifically the Schwartz gyroid — as the internal structure of a compact liquid-to-liquid heat exchanger intended for additive manufacture in AlSi10Mg via selective laser melting.\n\nThe geometry was parameterised in Python using a marching-cubes isosurface extraction, exported to STL, and imported into ANSYS Fluent for conjugate heat transfer analysis. Mesh generation for complex TPMS geometries required a polyhedral meshing strategy with boundary layer refinement.\n\nThe final design achieved a 2.1× improvement in surface area-to-volume ratio over a conventional plate heat exchanger baseline, with a predicted 31% increase in heat transfer coefficient at the same pumping power. A test article was printed and is pending thermal performance testing.",
+    "specs": [
+      { "key": "Geometry", "value": "Schwartz gyroid TPMS" },
+      { "key": "Process", "value": "SLM (AlSi10Mg)" },
+      { "key": "SA/V ratio", "value": "2.1× baseline" },
+      { "key": "HTC gain", "value": "+31% (predicted)" },
+      { "key": "Analysis", "value": "Conjugate CHT" }
+    ],
+    "pills": ["SolidWorks", "ANSYS Fluent", "CFD", "SLM", "Python"],
+    "links": []
+  },
+  {
+    "id": "rocket-stand",
+    "tag": "Aerospace · Propulsion",
+    "title": "Hybrid Rocket Motor Test Stand",
+    "summary": "Full design and build of a 500 N thrust test facility including load cell rig, data acquisition, safety interlock logic, and analysis scripts.",
+    "details": "Led the design and build of a static test facility for a 500 N class hybrid rocket motor as part of a university rocketry society project. Responsibilities covered structural design of the thrust frame, instrumentation, the safety and interlock system, and post-test data analysis tooling.\n\nThe thrust frame is a welded mild steel structure with an S-type load cell in-line with the motor axis, calibrated against a traceable deadweight reference. A 16-channel DAQ system samples load, chamber pressure, oxidiser tank pressure, and four thermocouple channels at 1 kHz.\n\nThe safety interlock is a hardwired PLC ladder logic system — not software-controlled — ensuring the main oxidiser valve can only open when all pre-fire checks pass. A Python post-processing script ingests the raw DAQ CSV, applies a low-pass filter, integrates for total impulse, and fits a regression rate curve to the pressure trace.",
+    "specs": [
+      { "key": "Thrust class", "value": "500 N" },
+      { "key": "DAQ rate", "value": "1 kHz, 16 ch." },
+      { "key": "Interlock", "value": "Hardwired PLC" },
+      { "key": "Propellant", "value": "N2O / HDPE" },
+      { "key": "Role", "value": "Lead designer" }
+    ],
+    "pills": ["Propulsion", "DAQ", "LabVIEW", "Safety Systems", "Python"],
+    "links": []
+  },
+  {
+    "id": "bms",
+    "tag": "Electrical · Power",
+    "title": "48 V Battery Management System",
+    "summary": "BMS design for a lithium-polymer pack in an electric go-kart, with cell balancing, thermal monitoring, and CANbus telemetry.",
+    "details": "Designed and built a battery management system for a 13S2P lithium-polymer pack (48 V nominal, 20 Ah) used in an electric go-kart drivetrain project.\n\nThe BMS is built around the BQ76952 front-end IC, which handles cell voltage monitoring, passive balancing, and protection FET control. A separate STM32G0 microcontroller handles state-of-charge estimation using a Coulomb counting + OCV correction algorithm, thermal monitoring via four NTC thermistors mounted to the cell groups, and CANbus communication to the vehicle's dashboard display.\n\nPack protection covers: overvoltage, undervoltage, overcurrent (both discharge and regen), short circuit, and over-temperature. The BMS also implements a pre-charge circuit to limit inrush current to the motor controller capacitor bank on startup.",
+    "specs": [
+      { "key": "Pack config", "value": "13S2P LiPo" },
+      { "key": "Voltage", "value": "48 V nominal" },
+      { "key": "Capacity", "value": "20 Ah" },
+      { "key": "Frontend IC", "value": "BQ76952" },
+      { "key": "Comms", "value": "CAN 2.0B" }
+    ],
+    "pills": ["BQ76952", "STM32G0", "CANbus", "KiCad", "LiPo"],
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/yourusername/bms" }
+    ]
+  }
+]
