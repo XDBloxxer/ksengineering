@@ -1,0 +1,52 @@
+{
+  "id": "self-balancing-reaction-wheel-cube",
+  "tag": "Mechatronics · Control",
+  "title": "Self-Balancing Reaction-Wheel Cube",
+  "summary": "A solo mechatronics project: a 100 mm 3D-printed cube that balances itself using a single motor-driven flywheel under field-oriented control. Built from 23 PLA parts and powered from a DC wall adapter, it holds its balance indefinitely and recovers from disturbances of roughly 5°.",
+  "details": "The goal of this personal project, carried out from September to November 2026, was to build a compact cube that stabilises itself with a reaction wheel. A flywheel is accelerated or slowed by a motor, and the equal-and-opposite reaction torque pushes the cube back toward upright. Everything was done by one person: mechanical design in Onshape, 3D printing, electronics integration, and the control software running on an ESP32.\n\nThe mechanical design is a stack of nearly square PLA plates (97.7 × 97.7 mm in CAD) inside a 100 mm outer envelope. Each plate carries one subsystem — motor, bearing, ESP32, converters, power switch, OLED display and wiring — for a total of 23 printed parts. Two flywheel versions were designed, a first ring of about 58 mm and a final one of about 53 mm, each 10 mm thick with a ring of holes near the rim. The final flywheel weighs approximately 100 g. Tolerances are extremely tight: the cube could not be a millimetre smaller without wiring and components pushing into the flywheel, and the flywheel cannot shrink because it would lack enough mass at its edge.\n\nThe electronics run from a DC wall adapter with a round jack plug rather than a battery. An ESP32 reads a motion sensor and runs the balance controller, while an FOC motor driver spins the flywheel motor. Key development steps included limiting and managing the motor current, rescaling the control gains to the usable voltage range, and flipping the sign of the commanded torque so the reaction pushes the cube toward upright. In final tuning only the back-EMF gain (Ke) was raised, to approximately 0.035.\n\nThe finished cube balances very well — effectively indefinitely — and can be disturbed by only a few degrees (about 5° at most) before it can no longer recover. Using estimated hobby-market prices including fasteners, the build comes to roughly €82. The project strengthened skills in sub-millimetre mechanical packaging, reaction-wheel control and tuning, field-oriented motor control and embedded programming.",
+  "specs": [
+    {
+      "key": "Outer dimensions",
+      "value": "100 × 100 mm"
+    },
+    {
+      "key": "Printed parts",
+      "value": "23 (all PLA)"
+    },
+    {
+      "key": "Flywheel",
+      "value": "~53 mm final version, ≈100 g"
+    },
+    {
+      "key": "Balance time",
+      "value": "Effectively indefinite"
+    },
+    {
+      "key": "Disturbance recovery",
+      "value": "Up to ~5°"
+    },
+    {
+      "key": "Power",
+      "value": "DC wall adapter (no battery)"
+    },
+    {
+      "key": "Estimated cost",
+      "value": "~€82"
+    }
+  ],
+  "pills": [
+    "Reaction Wheel",
+    "FOC Motor Control",
+    "ESP32",
+    "Onshape CAD",
+    "3D Printing (PLA)",
+    "Control Tuning",
+    "Tight-Tolerance Design"
+  ],
+  "links": [
+    {
+      "label": "Report (PDF)",
+      "url": "files/Self_Balancing_Cube_Portfolio.pdf"
+    }
+  ]
+}
