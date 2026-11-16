@@ -225,6 +225,19 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
 .snaps img:nth-child(odd){transform:rotate(-1.2deg)}.snaps img:nth-child(even){transform:rotate(1deg)}
 @media(max-width:900px){.spec{margin-top:1rem}.mgal{padding-inline:1.2rem}.mgal img{height:120px}.co span{font-size:.55rem}}
 .kc figcaption i{display:block;font-style:normal;color:var(--warm);margin-top:.2rem}
+.advtop{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.advtop figure{margin:0;padding:.6rem .6rem 0;background:rgba(14,7,24,.72);border:1px solid var(--line);cursor:zoom-in;transition:transform .25s,box-shadow .25s,border-color .25s}
+.advtop figure:hover{transform:translateY(-4px);border-color:var(--org);box-shadow:0 0 34px -8px var(--org)}
+.advtop .ph{aspect-ratio:4/3;overflow:hidden;background:#0a0612;border:1px solid var(--line)}
+.advtop .ph img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92)}
+.advtop figcaption{padding:.8rem .3rem 1rem}
+.advtop figcaption .m{display:block;color:var(--org);font-size:.62rem;margin-bottom:.25rem}
+.advtop figcaption b{display:block;font:700 1.1rem/1.15 var(--disp);text-transform:uppercase;margin-bottom:.3rem}
+.advtop figcaption p{font-size:.98rem;line-height:1.45;color:#c9bdd2}
+.advtog{display:block;margin:1.6rem 0 1rem;font:400 .74rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--org);background:none;border:1px solid var(--line);padding:.7rem 1.1rem;cursor:pointer;transition:border-color .2s,color .2s}
+.advtog:hover{color:var(--warm);border-color:var(--org)}
+#advmore{margin-top:.4rem}
+@media(max-width:760px){.advtop{grid-template-columns:1fr;gap:1.2rem}}
 .advf{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem}
 .advf button{font:400 .68rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);background:rgba(14,7,24,.72);border:1px solid var(--line);padding:.45rem .8rem;cursor:pointer;transition:color .2s,border-color .2s}
 .advf button:hover{color:var(--tx)}.advf button.on{color:#000;background:var(--org);border-color:var(--org)}
@@ -375,16 +388,20 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
     <h3>Karting &amp; tinkering</h3>
     <p>I usually finish in the top 10 in whatever we enter. Most recently: 10th at the WRC Go-Kart Challenge in Lange Kardirada. When I'm not in class I'm tinkering with mechanical projects, sim racing in Assetto Corsa Competizione (ranked, on my own), or soldering something. One glider flight with an instructor was enough to make me want a pilot's licence, and that's the plan once the savings allow.</p>
     <div class="pills"><span class="pill">Karting</span><span class="pill">3D modelling</span><span class="pill">Sim racing · ACC</span><span class="pill">Mechanical tinkering</span><span class="pill">Future pilot</span></div>
-    <a class="more" href="#adventures">See the adventures →</a>
+    <a class="more" href="#adventures" id="see-adv">See the adventures →</a>
   </div>
 
 </section>
 
 <section id="adventures">
   <div class="sh fi"><span class="m">03</span><h2>Adventures</h2></div>
-  <div class="advf" id="advf"></div>
-  <div class="adv" id="adv"></div>
-  <p class="adv-note fi" id="adv-note">Off-duty log: tracks, cockpits and anything else with an engine or wings. Tap a photo to open it.</p>
+  <div class="advtop" id="advtop"></div>
+  <button class="advtog" id="advtog" aria-expanded="false" aria-controls="advmore"></button>
+  <div id="advmore" hidden>
+    <div class="advf" id="advf"></div>
+    <div class="adv" id="adv"></div>
+  </div>
+  <p class="adv-note fi" id="adv-note">Off-duty log: tracks, cockpits and anything else with an engine or wings.</p>
 </section>
 
 <section id="projects">
@@ -537,10 +554,10 @@ addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 // Entries without "img" stay hidden (set SHOW_SLOTS = true to preview them as "Photo incoming").
 const SHOW_SLOTS = false;
 const ADV = [
-  {img: 'img/kart-a.webp', tag: 'Karting · 2026', title: 'Student karting cup', cap: 'Üliõpilaste karikavõistlused kardispordis 2026. Flat out down the straight, with the background blurred by the pan.'},
+  {img: 'img/kart-a.webp', star: 1, tag: 'Karting · 2026', title: 'Student karting cup', cap: 'Üliõpilaste karikavõistlused kardispordis 2026. Flat out down the straight, with the background blurred by the pan.'},
   {img: 'img/kart-b.webp', tag: 'Karting · 2026', title: 'Leaning into the corner', cap: 'Same championship, a different lap: a kart on the limit, with the red-and-white kerbs just inside.'},
   {img: 'img/kart-c.webp', tag: 'Karting · 2026', title: 'Out of the apex', cap: 'Clean line through the bend, the pit lane and grandstand in the background.'},
-  {img: 'img/glider-cockpit-pilot.webp', pos: '50% 30%', tag: 'Gliding', title: 'First glider flight', cap: 'One flight with an instructor, and I wanted a pilot\'s licence.'},
+  {img: 'img/glider-cockpit-pilot.webp', star: 1, pos: '50% 30%', tag: 'Gliding', title: 'First glider flight', cap: 'One flight with an instructor, and I wanted a pilot\'s licence.'},
   {img: 'img/glider-hands-ears.webp', pos: '50% 30%', tag: 'Gliding', title: 'Ready on the grass', cap: 'Strapped in under a heavy sky, before the flight.'},
   {img: 'img/glider-nose.webp', pos: '50% 45%', tag: 'Gliding', title: 'Nose-on', cap: 'The glider canopy and red nose, straight on from the airfield.'},
   {img: 'img/glider-crew.webp', tag: 'Gliding', title: 'Airfield crew', cap: 'The group at the airfield, lined up under the wing and propeller.'},
@@ -550,21 +567,33 @@ const ADV = [
   {img: 'img/kart-student-2025.webp', tag: 'Karting · 2025', title: 'Student cup 2025', cap: 'Üliõpilaste karikavõistlused kardispordis 2025: trackside before a run.'},
   {img: 'img/kart-lange-podium.webp', tag: 'Karting · 2025', title: 'Lange podium', cap: 'Vuntsid rajal 2025 at Lange Kardihall, the whole field with medals after the race.'},
   {img: 'img/kart-wrc-2026.webp', pos: '50% 30%', tag: 'Karting · 2026', title: 'WRC go-kart challenge', cap: 'Lange Kardihall, 2026: in the kart and ready on the grid.'},
-  {img: 'img/kart-pro.webp', pos: '50% 35%', tag: 'Karting', title: 'Pro kart', cap: 'Out on a proper pro kart, a big step up from rental karts.'},
+  {img: 'img/kart-pro.webp', star: 1, pos: '50% 35%', tag: 'Karting', title: 'Pro kart', cap: 'Out on a proper pro kart, a big step up from rental karts.'},
   {img: 'img/kart-gear.webp', tag: 'Karting', title: 'Gearing up', cap: 'Gloves on the helmet, just before heading out.'},
   {tag: 'Sim racing', title: 'Assetto Corsa Competizione', cap: 'Ranked racing at home, on my own.'}
 ];
-const advList = ADV.filter(a => a.img || SHOW_SLOTS);
+const advAll = ADV.filter(a => a.img || SHOW_SLOTS);
+const top3 = advAll.filter(a => a.star), rest = advAll.filter(a => !a.star);
 const cat = a => a.tag.split(' · ')[0];
-const cats = ['All', ...new Set(advList.map(cat))];
-let advF = 'All', view = advList, cur = 0;
+const cats = ['All', ...new Set(rest.map(cat))];
+let advF = 'All', isOpen = false, view = [], cur = 0;
 const lb = $('lb');
+const sizeView = () => view = [...top3, ...(isOpen ? rest.filter(a => advF === 'All' || cat(a) === advF) : [])];
+$('advtop').innerHTML = top3.map((a, i) => `<figure class="fi" data-a="${i}" tabindex="0" role="button">
+  <div class="ph"><img src="${esc(a.img)}" alt="${esc(a.title)}" loading="lazy"${a.pos ? ` style="object-position:${esc(a.pos)}"` : ''}></div>
+  <figcaption><span class="m">${esc(a.tag)}</span><b>${esc(a.title)}</b><p>${esc(a.cap)}</p></figcaption></figure>`).join('');
 function renderAdv() {
-  view = advList.filter(a => advF === 'All' || cat(a) === advF);
-  $('advf').innerHTML = cats.map(c => `<button class="${c === advF ? 'on' : ''}" data-c="${esc(c)}">${esc(c)} · ${c === 'All' ? advList.length : advList.filter(a => cat(a) === c).length}</button>`).join('');
-  $('adv').innerHTML = view.map((a, i) => `<figure data-a="${i}" tabindex="0" role="button" aria-label="${esc(a.title)}">
+  const list = rest.filter(a => advF === 'All' || cat(a) === advF);
+  $('advf').innerHTML = cats.map(c => `<button class="${c === advF ? 'on' : ''}" data-c="${esc(c)}">${esc(c)} · ${c === 'All' ? rest.length : rest.filter(a => cat(a) === c).length}</button>`).join('');
+  $('adv').innerHTML = list.map((a, i) => `<figure data-a="${top3.length + i}" tabindex="0" role="button" aria-label="${esc(a.title)}">
     <img src="${esc(a.img)}" alt="${esc(a.title)}" loading="lazy"${a.pos ? ` style="object-position:${esc(a.pos)}"` : ''}>
     <figcaption>${esc(a.title)}</figcaption></figure>`).join('');
+  sizeView();
+}
+function setOpen(v, scroll) {
+  isOpen = v; $('advmore').hidden = !v; $('advtog').setAttribute('aria-expanded', v);
+  $('advtog').textContent = v ? 'Show fewer ↑' : `Show all ${advAll.length} photos ↓`;
+  if (v) renderAdv(); else sizeView();
+  if (scroll) $('adventures').scrollIntoView();
 }
 function showLb(i) {
   cur = (i + view.length) % view.length; const a = view[cur];
@@ -573,9 +602,14 @@ function showLb(i) {
   lb.classList.add('open');
 }
 const closeLb = () => lb.classList.remove('open');
+$('advtog').onclick = () => setOpen(!isOpen, isOpen);
+$('see-adv').addEventListener('click', () => setOpen(true, false));
 $('advf').onclick = e => { const b = e.target.closest('button'); if (b) { advF = b.dataset.c; renderAdv(); } };
-$('adv').onclick = e => { const f = e.target.closest('figure'); if (f) showLb(+f.dataset.a); };
-$('adv').onkeydown = e => { const f = e.target.closest('figure'); if (f && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); showLb(+f.dataset.a); } };
+const pick = e => { const f = e.target.closest('figure'); if (f) showLb(+f.dataset.a); };
+$('advtop').onclick = pick; $('adv').onclick = pick;
+const key = e => { const f = e.target.closest('figure'); if (f && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); showLb(+f.dataset.a); } };
+$('advtop').onkeydown = key; $('adv').onkeydown = key;
+setOpen(false, false);
 lb.querySelector('.pv').onclick = e => { e.stopPropagation(); showLb(cur - 1); };
 lb.querySelector('.nx').onclick = e => { e.stopPropagation(); showLb(cur + 1); };
 lb.querySelector('.cl').onclick = closeLb;
