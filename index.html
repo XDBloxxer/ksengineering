@@ -157,7 +157,7 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
 #deck .deck{max-width:640px;justify-self:end;width:100%}
 .sil{position:absolute;right:.9rem;top:2.8rem;width:50%;color:var(--c);opacity:.13;pointer-events:none;transition:opacity .3s}.card:hover .sil{opacity:.38}
 .sil svg,.bay svg,.msil svg{width:100%;display:block}
-.bay{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-bottom:2.6rem}
+.bay{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1rem;margin-bottom:2.6rem}
 .bay div{--c:var(--org);padding:.9rem .9rem .6rem;cursor:pointer;transition:box-shadow .25s,border-color .25s}
 .bay div:hover{border-color:var(--c);box-shadow:0 0 30px -8px var(--c)}
 .bay svg{color:var(--c);opacity:.85}.bay .m{display:block;color:var(--mute);font-size:.6rem;margin-top:.4rem}
@@ -509,6 +509,7 @@ const SIL = {
   kart: SV('<path d="M20 70H180V80H20Z"/><path d="M20 70L36 58H72"/><path d="M110 70V42H128L142 70"/><path d="M72 58L88 36"/><ellipse cx="91" cy="32" rx="13" ry="4" transform="rotate(-25 91 32)"/><circle cx="42" cy="86" r="16"/><circle cx="42" cy="86" r="6"/><circle cx="152" cy="84" r="23"/><circle cx="152" cy="84" r="8"/>'),
   tesla: SV('<rect x="40" y="98" width="120" height="14"/><ellipse cx="100" cy="94" rx="42" ry="6"/><rect x="90" y="30" width="20" height="62"/><path d="M90 42h20M90 54h20M90 66h20M90 78h20"/><ellipse cx="100" cy="22" rx="27" ry="8"/><path d="M127 22l12-9-6 11 15-7-9 11"/><path d="M73 20l-12-8 6 10-14-6 8 10"/>'),
   cube: SV('<path d="M30 108H170"/><path d="M100 108L56 64L100 20L144 64Z"/><circle cx="100" cy="64" r="23"/><path d="M77 64H123M100 41V87"/><circle cx="100" cy="64" r="4"/><path d="M158 20V108M153 28L158 20L163 28"/>'),
+  driver: SV('<path d="M100 50Q104 40 126 38L162 34V86L126 82Q104 80 100 70Z"/><rect x="162" y="30" width="22" height="60" rx="8"/><path d="M100 54H72V66H100"/><path d="M72 58H22V62H72"/><circle cx="17" cy="60" r="2.5"/>'),
   drone: SV('<path d="M6 62Q100 48 194 62"/><path d="M6 62Q100 70 194 62"/><rect x="88" y="64" width="24" height="16" rx="6"/><path d="M112 72H172"/><path d="M172 72V46L186 72"/><path d="M162 72H192"/><path d="M88 70H72"/><ellipse cx="68" cy="70" rx="2.5" ry="13"/>'),
   stock: SV('<path d="M20 108H190"/><path d="M36 70V102M62 60V96M88 66V94M114 44V84M140 36V72M166 22V64"/><rect x="30" y="78" width="12" height="16"/><rect x="56" y="68" width="12" height="18"/><rect x="82" y="72" width="12" height="14"/><rect x="108" y="52" width="12" height="24"/><rect x="134" y="44" width="12" height="20"/><rect x="160" y="30" width="12" height="26"/><path d="M26 92L68 78L112 56L146 42L184 16"/>')
 };
@@ -516,12 +517,13 @@ const HL = {
   kart: ['32 parts', 'Fully constrained SolidWorks assembly · 102.7 kg · team of three'],
   tesla: ['4 cm sparks', 'From a 220 V wall outlet · high-school build with a friend · €282'],
   cube: ['1 wheel', 'One flywheel balances it on one side · ~€82'],
+  driver: ['48 hours', 'From a month of thinking to a finished contest entry · a screwdriver built for right-to-repair'],
   drone: ['~81 parts', 'Reverse-engineered EOS UAV in SolidWorks · team of 17 · I modelled the centre wing + airfoil'],
   stock: ['+107.8%', 'Simulated 29-day backtest · 85 trades · 51.8% win rate · −22.9% max drawdown']
 };
-const TH = {cube: 'img/cube-a.webp', tesla: 'img/tesla-a.webp', kart: 'img/gokart-a.webp', stock: 'img/stock-chart.webp', drone: 'img/drone-a.webp'}, GAL = {cube: ['img/cube-b.webp', 'img/cube-c.webp', 'img/cube-a.webp'], tesla: ['img/tesla-b.webp', 'img/tesla-c.webp', 'img/tesla-d.webp'], kart: ['img/gokart-b.webp', 'img/gokart-c.webp', 'img/gokart-a.webp'], stock: ['img/stock-kpis.webp', 'img/stock-chart.webp'], drone: ['img/drone-front.webp', 'img/drone-tail.webp', 'img/drone-prop.webp', 'img/drone-wing.webp']};
-const kind = p => { const i = (p.id || '').toLowerCase(); return /drone/.test(i) ? 'drone' : /kart/.test(i) ? 'kart' : /tesla|coil/.test(i) ? 'tesla' : /cube|balanc/.test(i) ? 'cube' : 'stock'; };
-const NOTES = {'fia-compliant-hobby-kart': '32 parts, every one constrained', 'spark-gap-tesla-coil': 'first prototype failed. rebuilt it.', 'self-balancing-reaction-wheel-cube': 'balances on one side. that\'s the hero →', 'eos-surveillance-drone': 'my part: the centre wing and airfoil'};
+const TH = {cube: 'img/cube-a.webp', tesla: 'img/tesla-a.webp', kart: 'img/gokart-a.webp', stock: 'img/stock-chart.webp', drone: 'img/drone-a.webp', driver: 'img/driver-a.webp'}, GAL = {cube: ['img/cube-b.webp', 'img/cube-c.webp', 'img/cube-a.webp'], tesla: ['img/tesla-b.webp', 'img/tesla-c.webp', 'img/tesla-d.webp'], kart: ['img/gokart-b.webp', 'img/gokart-c.webp', 'img/gokart-a.webp'], stock: ['img/stock-kpis.webp', 'img/stock-chart.webp'], drone: ['img/drone-front.webp', 'img/drone-tail.webp', 'img/drone-prop.webp', 'img/drone-wing.webp'], driver: ['img/driver-main.webp', 'img/driver-exploded.webp', 'img/driver-parts.webp', 'img/driver-probe.webp']};
+const kind = p => { const i = (p.id || '').toLowerCase(); return /screw|repair/.test(i) ? 'driver' : /drone/.test(i) ? 'drone' : /kart/.test(i) ? 'kart' : /tesla|coil/.test(i) ? 'tesla' : /cube|balanc/.test(i) ? 'cube' : 'stock'; };
+const NOTES = {'fia-compliant-hobby-kart': '32 parts, every one constrained', 'spark-gap-tesla-coil': 'first prototype failed. rebuilt it.', 'self-balancing-reaction-wheel-cube': 'balances on one side. that\'s the hero →', 'eos-surveillance-drone': 'my part: the centre wing and airfoil', 'repair-first-screwdriver': 'two stressful days. diamonds, pressure.'};
 async function loadProjects() {
   try {
     const names = await (await fetch('projects/index.json')).json();
