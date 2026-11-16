@@ -197,7 +197,7 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
   .wrap{padding:0 1.2rem}nav{padding:.7rem 1.2rem}.met{display:none}.ftb{grid-template-columns:1fr 1fr}.tele{grid-template-columns:repeat(2,auto)}
   .mbd,.mh,.mf{padding-inline:1.2rem}.ms{margin-inline:1.2rem}
 }
-@media(max-width:520px){nav ul{gap:.9rem}nav ul li:nth-child(n+4):nth-child(-n+5){display:none}.plan{grid-template-columns:1fr}.rd{grid-template-columns:repeat(2,1fr)}.att{width:42%}}
+@media(max-width:520px){nav ul{gap:.9rem}nav ul li:nth-child(n+5):nth-child(-n+6){display:none}.plan{grid-template-columns:1fr}.rd{grid-template-columns:repeat(2,1fr)}.att{width:42%}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.fi{opacity:1;transform:none}}
 .hero{grid-template-columns:1.15fr .85fr}h1{font-size:clamp(3rem,8.2vw,8.2rem)}.lede{max-width:36rem}
 .hud{position:fixed;left:1.2rem;bottom:1rem;z-index:100;color:var(--mute);font-size:.62rem;pointer-events:none;text-shadow:0 0 8px #000}.hud b{color:var(--astro);font-weight:400}
@@ -224,13 +224,33 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
 .snaps{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:1.2rem}.snaps img{width:100%;aspect-ratio:3/2;object-fit:cover;border:1px solid var(--line);filter:saturate(.9)}
 .snaps img:nth-child(odd){transform:rotate(-1.2deg)}.snaps img:nth-child(even){transform:rotate(1deg)}
 @media(max-width:900px){.spec{margin-top:1rem}.mgal{padding-inline:1.2rem}.mgal img{height:120px}.co span{font-size:.55rem}}
+.kc figcaption i{display:block;font-style:normal;color:var(--warm);margin-top:.2rem}
+.adv{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem 1.6rem;align-items:start}
+.adv figure{margin:0;padding:.6rem .6rem 0;background:rgba(14,7,24,.72);border:1px solid var(--line);transition:transform .25s,box-shadow .25s,border-color .25s;cursor:zoom-in}
+.adv figure:nth-child(odd){transform:rotate(-.7deg)}.adv figure:nth-child(even){transform:rotate(.7deg);margin-top:1rem}
+.adv figure.vis:nth-child(odd){transform:rotate(-.7deg)}.adv figure.vis:nth-child(even){transform:rotate(.7deg)}
+.adv figure.vis:hover{transform:rotate(0) translateY(-4px);border-color:var(--org);box-shadow:0 0 34px -8px var(--org)}
+.adv .ph{aspect-ratio:3/2;overflow:hidden;background:#0a0612;border:1px solid var(--line)}
+.adv .ph img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92)}
+.adv .ph.slot{display:grid;place-items:center;border-style:dashed;color:var(--mute);font:400 .66rem var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.adv figcaption{padding:.8rem .3rem 1rem}
+.adv figcaption .m{display:block;color:var(--org);font-size:.62rem;margin-bottom:.25rem}
+.adv figcaption b{display:block;font:700 1.1rem/1.15 var(--disp);text-transform:uppercase;margin-bottom:.3rem}
+.adv figcaption p{font-size:.98rem;line-height:1.45;color:#c9bdd2}
+.adv-note{margin-top:2rem;font:400 .66rem var(--mono);letter-spacing:.1em;color:var(--mute)}
+.kart .more{display:inline-block;margin-top:1rem;font:400 .74rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--org);text-decoration:none}.kart .more:hover{color:var(--warm)}
+#lb{display:none;position:fixed;inset:0;z-index:600;background:rgba(3,1,8,.92);backdrop-filter:blur(5px);padding:2rem 1rem;flex-direction:column;align-items:center;justify-content:center;gap:1rem;cursor:zoom-out}
+#lb.open{display:flex}#lb img{max-width:min(1100px,94vw);max-height:76vh;object-fit:contain;border:1px solid var(--line);box-shadow:0 0 50px -10px var(--org)}
+#lb div{max-width:min(1100px,94vw);text-align:center;color:#d8cce0;font-size:1rem}#lb b{display:block;font:700 1.1rem var(--disp);text-transform:uppercase;color:var(--tx);margin-bottom:.2rem}
+@media(max-width:900px){.adv{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.adv{grid-template-columns:1fr}.adv figure:nth-child(even){margin-top:0}}
 </style>
 </head>
 <body>
 <div class="neb"></div><div class="planet"></div><canvas id="sky"></canvas>
 <nav>
   <a class="logo" href="#top">KS<b>//</b>ENG</a>
-  <ul><li><a href="#deck">Deck</a></li><li><a href="#about">Crew</a></li><li><a href="#projects">Missions</a></li><li><a href="#skills">Systems</a></li><li><a href="#plan">Flight plan</a></li><li><a href="#contact">Comms</a></li></ul>
+  <ul><li><a href="#deck">Deck</a></li><li><a href="#about">Crew</a></li><li><a href="#adventures">Adventures</a></li><li><a href="#projects">Missions</a></li><li><a href="#skills">Systems</a></li><li><a href="#plan">Flight plan</a></li><li><a href="#contact">Comms</a></li></ul>
   <span class="met" id="met">MET 00:00:00</span>
 </nav>
 
@@ -324,9 +344,9 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
       </div>
     </div>
     <div class="kc">
-      <figure class="kc-big"><img src="img/kmh-table.webp" alt="The KMH Group team at their table, with the KMH GRUPP sign" loading="lazy"><figcaption>KMH Grupp, at our table</figcaption></figure>
-      <figure><img src="img/kmh-pitch.webp" alt="Presenting the project in front of the Autodesk banners" loading="lazy"><figcaption>Pitching</figcaption></figure>
-      <figure><img src="img/kmh-stage.webp" alt="The team at the front of the room during the contest" loading="lazy"><figcaption>Up front</figcaption></figure>
+      <figure class="kc-big"><img src="img/kmh-table.webp" alt="The KMH Group team at their table, with the KMH GRUPP sign" loading="lazy"><figcaption>KMH Grupp, at our table<i>Left to right: Mikk · Hendrik · Kristjan</i></figcaption></figure>
+      <figure><img src="img/kmh-pitch.webp" alt="Presenting the project in front of the Autodesk banners" loading="lazy"><figcaption>Pitching<i>Kristjan · Hendrik · Mikk</i></figcaption></figure>
+      <figure><img src="img/kmh-stage.webp" alt="The team at the front of the room during the contest" loading="lazy"><figcaption>Up front<i>Kristjan · Hendrik</i></figcaption></figure>
     </div>
     <div class="kx-bridge"><span class="m">Our entry · PLM Innovators Design Contest 2026</span></div>
     <h3>The Repair-First Screwdriver</h3>
@@ -355,26 +375,31 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
     <h3>Karting &amp; tinkering</h3>
     <p>I usually finish in the top 10 in whatever we enter. Most recently: 10th at the WRC Go-Kart Challenge in Lange Kardirada. When I'm not in class I'm tinkering with mechanical projects, sim racing in Assetto Corsa Competizione (ranked, on my own), or soldering something. One glider flight with an instructor was enough to make me want a pilot's licence, and that's the plan once the savings allow.</p>
     <div class="pills"><span class="pill">Karting</span><span class="pill">3D modelling</span><span class="pill">Sim racing · ACC</span><span class="pill">Mechanical tinkering</span><span class="pill">Future pilot</span></div>
-    <!-- add more photos here later (or split into an "Adventures" section) -->
-    <div class="snaps"><img src="img/kart-a.webp" alt="Karting" loading="lazy"><img src="img/kart-b.webp" alt="Karting" loading="lazy"><img src="img/kart-c.webp" alt="Karting" loading="lazy"></div>
+    <a class="more" href="#adventures">See the adventures →</a>
   </div>
 
 </section>
 
+<section id="adventures">
+  <div class="sh fi"><span class="m">03</span><h2>Adventures</h2></div>
+  <div class="adv" id="adv"></div>
+  <p class="adv-note fi" id="adv-note">Off-duty log: tracks, cockpits and anything else with an engine or wings. More photos incoming.</p>
+</section>
+
 <section id="projects">
-  <div class="sh fi"><span class="m">03</span><h2>Mission log</h2></div>
+  <div class="sh fi"><span class="m">04</span><h2>Mission log</h2></div>
   <div class="grid" id="grid"></div>
   <p class="m" id="err" style="display:none;margin-top:1rem;color:var(--astro)">Couldn't load projects/index.json. Open via a server (python3 -m http.server) or GitHub Pages.</p>
 </section>
 
 <section id="skills">
-  <div class="sh fi"><span class="m">04</span><h2>Ship systems</h2></div>
+  <div class="sh fi"><span class="m">05</span><h2>Ship systems</h2></div>
   <div class="skills" id="sg"></div>
   <span class="hn" style="position:static;display:block;margin-top:1.4rem">honest numbers. FEA and CFD classes are next.</span>
 </section>
 
 <section id="plan">
-  <div class="sh fi"><span class="m">05</span><h2>Flight plan</h2></div>
+  <div class="sh fi"><span class="m">06</span><h2>Flight plan</h2></div>
   <div class="plan fi">
     <div class="wp now"><span class="m" style="color:var(--astro)">T-0 · now</span><h4>Aeronautical engineering</h4><p>Year 2 at the Estonian Aviation Academy (started 2025), building real hardware on the side.</p></div>
     <div class="wp"><span class="m" style="color:var(--org)">Next burn · ~2028–29</span><h4>Spacecraft design</h4><p>Straight after the Academy: further study aimed at designing vehicles that leave the atmosphere.</p></div>
@@ -384,7 +409,7 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
 </section>
 
 <section id="contact">
-  <div class="sh fi"><span class="m">06</span><h2>Open comms</h2></div>
+  <div class="sh fi"><span class="m">07</span><h2>Open comms</h2></div>
   <div class="contact fi">
     <div>
       <h3>Got a hard problem?<br><em>Transmit it.</em></h3>
@@ -412,6 +437,8 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
   <div><small>Rev</small>2026.A</div>
   <div><small>Signal</small><span style="color:var(--org)">● Tartu, nominal</span></div>
 </div></div></footer>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Photo"><img alt=""><div></div></div>
 
 <div class="mb" id="mb" role="dialog" aria-modal="true"><div class="p modal">
   <div class="mh"><div class="msil" id="m-sil"></div><div class="m" id="m-tag" style="color:var(--org)"></div><h3 id="m-title"></h3><button class="x" id="m-x" aria-label="Close">✕</button></div>
@@ -505,6 +532,29 @@ function openModal(p, i = 0) {
 const closeModal = () => { mb.classList.remove('open'); document.body.style.overflow = ''; };
 $('m-x').onclick = closeModal; mb.addEventListener('click', e => { if (e.target === mb) closeModal(); });
 addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+// Adventures gallery. To add one: drop a photo in img/ and add a line here.
+// Entries without "img" stay hidden (set SHOW_SLOTS = true to preview them as "Photo incoming").
+const SHOW_SLOTS = false;
+const ADV = [
+  {img: 'img/kart-a.webp', tag: 'Karting · 2026', title: 'Student karting cup', cap: 'Üliõpilaste karikavõistlused kardispordis 2026. Flat out down the straight, with the background blurred by the pan.'},
+  {img: 'img/kart-b.webp', tag: 'Karting · 2026', title: 'Leaning into the corner', cap: 'Same championship, a different lap: a kart on the limit, with the red-and-white kerbs just inside.'},
+  {img: 'img/kart-c.webp', tag: 'Karting · 2026', title: 'Out of the apex', cap: 'Clean line through the bend, the pit lane and grandstand in the background.'},
+  {tag: 'Gliding', title: 'First glider flight', cap: 'One flight with an instructor, and I wanted a pilot\'s licence.'},
+  {tag: 'Sim racing', title: 'Assetto Corsa Competizione', cap: 'Ranked racing at home, on my own.'}
+];
+const advList = ADV.filter(a => a.img || SHOW_SLOTS);
+$('adv').innerHTML = advList.map((a, i) => `<figure class="fi" data-a="${i}">
+  <div class="ph${a.img ? '' : ' slot'}">${a.img ? `<img src="${esc(a.img)}" alt="${esc(a.title)}" loading="lazy">` : 'Photo incoming'}</div>
+  <figcaption><span class="m">${esc(a.tag)}</span><b>${esc(a.title)}</b><p>${esc(a.cap)}</p></figcaption></figure>`).join('');
+const lb = $('lb');
+const closeLb = () => lb.classList.remove('open');
+document.querySelectorAll('#adv figure').forEach(f => f.onclick = () => {
+  const a = advList[+f.dataset.a]; if (!a.img) return;
+  lb.querySelector('img').src = a.img; lb.querySelector('img').alt = a.title;
+  lb.querySelector('div').innerHTML = `<b>${esc(a.title)}</b>${esc(a.cap)}`; lb.classList.add('open');
+});
+lb.onclick = closeLb; addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } }), {threshold: .12});
 document.querySelectorAll('.fi').forEach(el => io.observe(el));
 loadProjects();
