@@ -263,7 +263,7 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
 <div class="neb"></div><div class="planet"></div><canvas id="sky"></canvas>
 <nav>
   <a class="logo" href="#top">KS<b>//</b>ENG</a>
-  <ul><li><a href="#deck">Deck</a></li><li><a href="#about">Crew</a></li><li><a href="#adventures">Adventures</a></li><li><a href="#projects">Missions</a></li><li><a href="#skills">Systems</a></li><li><a href="#plan">Flight plan</a></li><li><a href="#contact">Comms</a></li></ul>
+  <ul><li><a href="#deck">Deck</a></li><li><a href="#about">Crew</a></li><li><a href="#projects">Missions</a></li><li><a href="#skills">Systems</a></li><li><a href="#plan">Flight plan</a></li><li><a href="#adventures">Adventures</a></li><li><a href="#contact">Comms</a></li></ul>
   <span class="met" id="met">MET 00:00:00</span>
 </nav>
 
@@ -397,8 +397,30 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
 
 </section>
 
+<section id="projects">
+  <div class="sh fi"><span class="m">03</span><h2>Mission log</h2></div>
+  <div class="grid" id="grid"></div>
+  <p class="m" id="err" style="display:none;margin-top:1rem;color:var(--astro)">Couldn't load projects/index.json. Open via a server (python3 -m http.server) or GitHub Pages.</p>
+</section>
+
+<section id="skills">
+  <div class="sh fi"><span class="m">04</span><h2>Ship systems</h2></div>
+  <div class="skills" id="sg"></div>
+  <span class="hn" style="position:static;display:block;margin-top:1.4rem">honest numbers. FEA and CFD classes are next.</span>
+</section>
+
+<section id="plan">
+  <div class="sh fi"><span class="m">05</span><h2>Flight plan</h2></div>
+  <div class="plan fi">
+    <div class="wp now"><span class="m" style="color:var(--astro)">T-0 · now</span><h4>Aeronautical engineering</h4><p>Year 2 at the Estonian Aviation Academy (started 2025), building real hardware on the side.</p></div>
+    <div class="wp"><span class="m" style="color:var(--org)">Next burn · ~2028–29</span><h4>Spacecraft design</h4><p>Straight after the Academy: further study aimed at designing vehicles that leave the atmosphere.</p></div>
+    <div class="wp"><span class="m" style="color:var(--mag)">Transfer</span><h4>Rockets &amp; propulsion</h4><p>Structures, engines, and everything in between that has to survive the ride.</p></div>
+    <div class="wp"><span class="m" style="color:var(--pur)">Destination</span><h4>Out there</h4><p>Making things that work where nobody can walk over and fix them.</p><span class="hn">no pressure</span></div>
+  </div>
+</section>
+
 <section id="adventures">
-  <div class="sh fi"><span class="m">03</span><h2>Adventures</h2></div>
+  <div class="sh fi"><span class="m">06</span><h2>Adventures</h2></div>
   <div class="advtop" id="advtop"></div>
   <button class="advtog" id="advtog" aria-expanded="false" aria-controls="advmore"></button>
   <div id="advmore" hidden>
@@ -406,28 +428,6 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
     <div class="adv" id="adv"></div>
   </div>
   <p class="adv-note fi" id="adv-note">Off-duty log: tracks, cockpits and anything else with an engine or wings.</p>
-</section>
-
-<section id="projects">
-  <div class="sh fi"><span class="m">04</span><h2>Mission log</h2></div>
-  <div class="grid" id="grid"></div>
-  <p class="m" id="err" style="display:none;margin-top:1rem;color:var(--astro)">Couldn't load projects/index.json. Open via a server (python3 -m http.server) or GitHub Pages.</p>
-</section>
-
-<section id="skills">
-  <div class="sh fi"><span class="m">05</span><h2>Ship systems</h2></div>
-  <div class="skills" id="sg"></div>
-  <span class="hn" style="position:static;display:block;margin-top:1.4rem">honest numbers. FEA and CFD classes are next.</span>
-</section>
-
-<section id="plan">
-  <div class="sh fi"><span class="m">06</span><h2>Flight plan</h2></div>
-  <div class="plan fi">
-    <div class="wp now"><span class="m" style="color:var(--astro)">T-0 · now</span><h4>Aeronautical engineering</h4><p>Year 2 at the Estonian Aviation Academy (started 2025), building real hardware on the side.</p></div>
-    <div class="wp"><span class="m" style="color:var(--org)">Next burn · ~2028–29</span><h4>Spacecraft design</h4><p>Straight after the Academy: further study aimed at designing vehicles that leave the atmosphere.</p></div>
-    <div class="wp"><span class="m" style="color:var(--mag)">Transfer</span><h4>Rockets &amp; propulsion</h4><p>Structures, engines, and everything in between that has to survive the ride.</p></div>
-    <div class="wp"><span class="m" style="color:var(--pur)">Destination</span><h4>Out there</h4><p>Making things that work where nobody can walk over and fix them.</p><span class="hn">no pressure</span></div>
-  </div>
 </section>
 
 <section id="contact">
