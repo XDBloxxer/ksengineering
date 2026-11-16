@@ -139,7 +139,7 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
 .card.fi.vis:nth-child(odd){transform:rotate(-.4deg)}.card.fi.vis:nth-child(even){transform:rotate(.4deg)}.card.fi.vis:hover{transform:rotate(0) translateY(-4px)}
 
 .mb{display:none;position:fixed;inset:0;z-index:500;background:rgba(3,1,8,.82);backdrop-filter:blur(5px);padding:2.5rem 1rem;overflow-y:auto}
-.mb.open{display:block}
+.mb.open{display:block;font:400 1.1rem/1.65 var(--body);letter-spacing:normal;text-transform:none;color:var(--tx)}
 .modal{max-width:780px;margin:0 auto;background:rgba(16,8,28,.97);animation:in .25s}
 @keyframes in{from{opacity:0;transform:translateY(24px)}}
 .mh{padding:1.6rem 2rem 1.2rem;border-bottom:1px solid var(--line)}
@@ -176,9 +176,29 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
 }
 @media(max-width:520px){nav ul{gap:.9rem}nav ul li:nth-child(n+4):nth-child(-n+5){display:none}.plan{grid-template-columns:1fr}.rd{grid-template-columns:repeat(2,1fr)}.att{width:42%}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.fi{opacity:1;transform:none}}
-.hero{grid-template-columns:1fr}h1{font-size:clamp(3.4rem,12vw,10.5rem)}.lede{max-width:40rem}
+.hero{grid-template-columns:1.15fr .85fr}h1{font-size:clamp(3rem,8.2vw,8.2rem)}.lede{max-width:36rem}
 .hud{position:fixed;left:1.2rem;bottom:1rem;z-index:100;color:var(--mute);font-size:.62rem;pointer-events:none;text-shadow:0 0 8px #000}.hud b{color:var(--astro);font-weight:400}
 @media(max-width:520px){.hud span{display:none}}
+.spec{position:relative;justify-self:center;width:min(100%,520px);aspect-ratio:1;cursor:pointer;perspective:900px}
+.spec::before{content:'';position:absolute;inset:6%;border-radius:50%;background:radial-gradient(circle,rgba(255,120,40,.32),rgba(154,92,255,.18) 55%,transparent 72%);filter:blur(14px)}
+.spec .ring{position:absolute;inset:2%;border:1px dashed var(--line);border-radius:50%;animation:spin 60s linear infinite}.spec .ring.b{inset:12%;animation-duration:90s;animation-direction:reverse;border-color:rgba(154,92,255,.3)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spec .rig{position:absolute;inset:0;transition:transform .25s ease-out;transform-style:preserve-3d}
+.spec .cube{position:absolute;inset:6% 8% 6% 8%;width:84%;height:88%;object-fit:contain;animation:bob 7s ease-in-out infinite;filter:drop-shadow(0 0 22px rgba(255,110,40,.35))}
+@keyframes bob{50%{transform:translateY(-12px) rotate(1.5deg)}}
+.co{position:absolute;pointer-events:none}.co i{display:block;width:10px;height:10px;margin:-5px;border-radius:50%;background:var(--astro);box-shadow:0 0 12px var(--astro)}
+.co i::after{content:'';position:absolute;inset:-6px;border:1px solid var(--astro);border-radius:50%;animation:ping 2s infinite}@keyframes ping{to{transform:scale(2.2);opacity:0}}
+.co span{position:absolute;top:-.6rem;left:2.6rem;white-space:nowrap;font:400 .62rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--warm);background:rgba(8,4,16,.75);padding:.15rem .45rem;border:1px solid var(--line)}
+.co span::before{content:'';position:absolute;right:100%;top:50%;width:2.2rem;height:1px;background:var(--org)}
+.co.up span{left:-2.4rem;top:-2.2rem}.co.up span::before{display:none}
+.co.l span{left:auto;right:2.6rem}.co.l span::before{right:auto;left:100%}
+.spec .cap{position:absolute;left:0;right:0;bottom:-.4rem;display:flex;justify-content:space-between;color:var(--mute);font-size:.62rem}.spec .cap b{color:var(--org);font-weight:400}
+.has-th .sil{display:none}
+.th{width:100%;height:230px;object-fit:cover;object-position:center 40%;margin:-.2rem 0 1rem;border:1px solid var(--line);filter:saturate(.9) contrast(1.05)}
+.mgal{display:flex;gap:.6rem;padding:1rem 2rem 0}.mgal:empty{display:none}.mgal img{flex:1;min-width:0;height:190px;object-fit:cover;border:1px solid var(--line)}
+.snaps{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:1.2rem}.snaps img{width:100%;aspect-ratio:3/2;object-fit:cover;border:1px solid var(--line);filter:saturate(.9)}
+.snaps img:nth-child(odd){transform:rotate(-1.2deg)}.snaps img:nth-child(even){transform:rotate(1deg)}
+@media(max-width:900px){.spec{margin-top:1rem}.mgal{padding-inline:1.2rem}.mgal img{height:120px}.co span{font-size:.55rem}}
 </style>
 </head>
 <body>
@@ -199,6 +219,17 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
     <div class="tele m"><div><small>Base</small><b>58.38°N 26.73°E</b></div><div><small>Local time</small><b id="clock">--:--</b></div><div><small>Next stop</small><b>Spacecraft design</b></div></div>
   </div>
 
+  <figure class="spec" id="spec" title="Open the cube mission report">
+    <div class="ring"></div><div class="ring b"></div>
+    <div class="rig" id="rig2">
+      <img class="cube" src="img/cube.webp" alt="3D-printed self-balancing reaction-wheel cube with its electronics visible">
+      <div class="co" style="left:71%;top:62%"><i></i><span>Reaction wheel</span></div>
+      <div class="co l" style="left:30%;top:31%"><i></i><span>Control electronics</span></div>
+      <div class="co up" style="left:84%;top:44%"><i></i><span>Status LED</span></div>
+      <div class="co l" style="left:44%;top:74%"><i></i><span>3D-printed frame</span></div>
+    </div>
+    <figcaption class="cap m"><span>Specimen · <b>Reaction-wheel cube</b></span><span>~€82 · balances on one corner</span></figcaption>
+  </figure>
 </div>
 
 <div class="wrap">
@@ -265,6 +296,7 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
       <p>Racing is where a lot of this started. Karting, 3D modelling and more competitions than I can count, always with the same two friends. We're <b style="color:var(--warm);font-weight:400">KMH Group</b>: Kristjan, Mikk and Hendrik, our initials. We made our own logo and carry it everywhere, even to individual competitions.</p>
       <p>I usually finish in the top 10 in whatever we enter. Most recently: 10th at the WRC Go-Kart Challenge in Lange Kardirada. When I'm not in class I'm tinkering with mechanical projects, sim racing in Assetto Corsa Competizione (ranked, on my own), or soldering something. One glider flight with an instructor was enough to make me want a pilot's licence, and that's the plan once the savings allow.</p>
       <div class="pills"><span class="pill">Karting</span><span class="pill">3D modelling</span><span class="pill">Sim racing · ACC</span><span class="pill">Mechanical tinkering</span><span class="pill">Future pilot</span></div>
+      <div class="snaps"><img src="img/kart-a.webp" alt="Karting" loading="lazy"><img src="img/kart-b.webp" alt="Karting" loading="lazy"><img src="img/kart-c.webp" alt="Karting" loading="lazy"></div>
     </div>
   </div>
 
@@ -324,6 +356,7 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
 
 <div class="mb" id="mb" role="dialog" aria-modal="true"><div class="p modal">
   <div class="mh"><div class="msil" id="m-sil"></div><div class="m" id="m-tag" style="color:var(--org)"></div><h3 id="m-title"></h3><button class="x" id="m-x" aria-label="Close">✕</button></div>
+  <div class="mgal" id="m-gal"></div>
   <div class="mbd" id="m-det"></div><div class="ms" id="m-specs"></div>
   <div class="mf"><div class="pills" id="m-pills"></div><div id="m-links"></div></div>
 </div></div>
@@ -376,17 +409,18 @@ const HL = {
   cube: ['1 wheel', 'One flywheel balances it on a corner · ~€82'],
   stock: ['50%+', 'Win rate on my trading signals · 60-day backtest, 3 trades a day']
 };
+const TH = {cube: 'img/cube-a.webp'}, GAL = {cube: ['img/cube-b.webp', 'img/cube-c.webp', 'img/cube-a.webp']};
 const kind = p => { const i = (p.id || '').toLowerCase(); return /kart/.test(i) ? 'kart' : /tesla|coil/.test(i) ? 'tesla' : /cube|balanc/.test(i) ? 'cube' : 'stock'; };
 const NOTES = {'fia-compliant-hobby-kart': '32 parts, every one constrained', 'spark-gap-tesla-coil': 'first prototype failed. rebuilt it.', 'self-balancing-reaction-wheel-cube': 'balances on one corner. that\'s the hero →'};
 async function loadProjects() {
   try {
     const names = await (await fetch('projects/index.json')).json();
     const ps = await Promise.all(names.map(async n => { const r = await fetch('projects/' + n); if (!r.ok) throw 0; return r.json(); }));
-    $('grid').innerHTML = '';
+    window.PS = ps; $('grid').innerHTML = '';
     ps.forEach((p, i) => {
       const k = kind(p), h = HL[k], c = document.createElement('div'); c.style.setProperty('--c', COL[i % 4]);
-      c.className = 'p card fi';
-      c.innerHTML = `<span class="tape"></span><div class="sil">${SIL[k]}</div><div class="top m"><span>Mission ${p2(i + 1)}</span><b>● Complete</b></div>
+      c.className = 'p card fi' + (TH[k] ? ' has-th' : '');
+      c.innerHTML = `<span class="tape"></span>${TH[k] ? `<img class="th" src="${TH[k]}" alt="" loading="lazy">` : ''}<div class="sil">${SIL[k]}</div><div class="top m"><span>Mission ${p2(i + 1)}</span><b>● Complete</b></div>
         <div class="big">${esc(h[0])}</div><div class="bigl">${esc(h[1])}</div>
         <h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p>${NOTES[p.id] ? `<div class="hand">${esc(NOTES[p.id])}</div>` : ''}
         <div class="ft"><div class="pills">${(p.pills || []).slice(0, 3).map(t => `<span class="pill">${esc(t)}</span>`).join('')}</div><span class="open">Mission report →</span></div>`;
@@ -401,7 +435,7 @@ async function loadProjects() {
 }
 const mb = $('mb');
 function openModal(p, i = 0) {
-  $('m-sil').innerHTML = SIL[kind(p)]; $('m-sil').style.color = COL[i % 4];
+  $('m-gal').innerHTML = (GAL[kind(p)] || []).map(u => `<img src="${u}" alt="" loading="lazy">`).join(''); $('m-sil').innerHTML = SIL[kind(p)]; $('m-sil').style.color = COL[i % 4];
   $('m-tag').textContent = p.tag; $('m-title').textContent = p.title; $('m-det').textContent = p.details;
   $('m-specs').style.display = (p.specs || []).length ? '' : 'none';
   $('m-specs').innerHTML = (p.specs || []).map(s => `<div><span>${esc(s.key)}</span><span>${esc(s.value)}</span></div>`).join('');
@@ -545,6 +579,13 @@ const att = {on: true, th: .12, kick(v) { this.w += v; }, w: 0, rpm: 0};
   requestAnimationFrame(frame);
 })();
 
+
+// ── Hero cube: tilt + open report ──
+(() => {
+  const sp = $('spec'), rg = $('rig2');
+  addEventListener('pointermove', e => { if (still) return; const x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5; rg.style.transform = `rotateY(${x * 14}deg) rotateX(${-y * 10}deg)`; });
+  sp.onclick = () => { const i = (window.PS || []).findIndex(p => kind(p) === 'cube'); if (i >= 0) openModal(PS[i], i); };
+})();
 </script>
 </body>
 </html>
