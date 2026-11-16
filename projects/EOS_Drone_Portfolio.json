@@ -1,0 +1,56 @@
+{
+  "id": "eos-surveillance-drone",
+  "tag": "Aerospace · CAD · Reverse Engineering",
+  "title": "EOS Surveillance Drone: Reverse-Engineered 3D Model",
+  "summary": "A team of 17 aeronautical engineering students reverse-engineered the Threod Systems EOS, an electric VTOL-capable surveillance drone, into a complete ~81-part SolidWorks assembly with engineering drawings and a cost and manufacturability analysis. My share was the centre wing section and the SD7037-092-88 airfoil profile.",
+  "details": "This Engineering Graphics II group project at the Estonian Aviation Academy (spring 2026) set one goal: build an accurate 3D model of the Threod Systems EOS tracking drone, an electric surveillance UAV with vertical take-off and landing, and document it with engineering drawings and a written report. Because EOS is a real product, the work was reverse engineering rather than design from scratch: parts were measured by hand (1–10 hours each, with more precise instruments and the supervisor's help for the harder geometry) and recreated as SolidWorks models.\n\nThe group of 17 was split into three sub-teams: motor, tail and transmitter; fuselage; and wing. I worked in the wing team under Hendrik Tiirats and modelled the centre wing section and the wing profile it is built on. The model uses the SD7037-092-88 airfoil, and because EOS is built for long flight times, its accuracy matters a great deal: a profile that drifts from its design shape, or a rough skin, adds drag and costs endurance. The wing was split four ways (wing-to-fuselage mount, aileron, wing tips, and clamp plus ribs) alongside my centre section, so early agreement on the interfaces between parts was essential. Coordination ran through a shared Drive with a naming guide, a task spreadsheet everyone updated, and Discord, and the fuselage was shared early so every other part could be checked against it.\n\nThe team also estimated a hypothetical bill of materials. Each part's material cost came from its SolidWorks mass, with a manufacturing cost of roughly €2–5 for simple parts and €8–30 for complex ones, while bought-in parts such as the motor, servos, propellers and transmitter use real market prices. The total comes to roughly €6,600, and about three quarters of it sits in the wing assemblies, which are the hardest thing to make both light and accurate. The design review flagged the long thin tail and wings and the wing-to-fuselage joint as easily damaged, the airfoil, fuselage shape and motor alignment as accuracy-critical, and the wings and streamlined fuselage as hard to manufacture, typically needing composites, lamination and vacuum techniques.\n\nThe model was completed and assembled successfully, with complex-surface modelling of the wing and fuselage as the toughest challenge. The report also covers cheaper off-the-shelf alternatives for the airframe, electronics and motors, and forecasts 4–7 weeks to build a real unit. For me it was a hands-on lesson in modelling to fit other people's parts, and in thinking about cost and manufacturing from the start.",
+  "specs": [
+    {
+      "key": "Aircraft",
+      "value": "Threod Systems EOS (electric, VTOL-capable)"
+    },
+    {
+      "key": "Team Size",
+      "value": "17 students, 3 sub-teams"
+    },
+    {
+      "key": "My Scope",
+      "value": "Centre wing + SD7037-092-88 airfoil"
+    },
+    {
+      "key": "Modelled Parts",
+      "value": "~81"
+    },
+    {
+      "key": "Hypothetical BOM",
+      "value": "~€6,600"
+    },
+    {
+      "key": "Wing Share of Cost",
+      "value": "~75%"
+    },
+    {
+      "key": "Project Duration",
+      "value": "5–6 weeks"
+    },
+    {
+      "key": "Platform",
+      "value": "SolidWorks"
+    }
+  ],
+  "pills": [
+    "SolidWorks",
+    "Reverse Engineering",
+    "SD7037 Airfoil",
+    "Wing Modelling",
+    "Engineering Drawings",
+    "Cost Estimation",
+    "Design for Manufacture"
+  ],
+  "links": [
+    {
+      "label": "Report (PDF)",
+      "url": "files/EOS_Drone_Portfolio.pdf"
+    }
+  ]
+}
