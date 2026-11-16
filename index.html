@@ -211,6 +211,8 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
 .co.l span{left:auto;right:2.6rem}.co.l span::before{right:auto;left:100%}
 .spec .cap{position:absolute;left:0;right:0;bottom:-.4rem;display:flex;justify-content:space-between;color:var(--mute);font-size:.62rem}.spec .cap b{color:var(--org);font-weight:400}
 .has-th .sil{display:none}
+.th.wide{height:auto;object-fit:contain;background:#0a0f0d}
+.mgal.stack{flex-direction:column}.mgal.stack img{height:auto;flex:none;width:100%}
 .th{width:100%;height:230px;object-fit:cover;object-position:center 40%;margin:-.2rem 0 1rem;border:1px solid var(--line);filter:saturate(.9) contrast(1.05)}
 .mgal{display:flex;gap:.6rem;padding:1rem 2rem 0}.mgal:empty{display:none}.mgal img{flex:1;min-width:0;height:190px;object-fit:cover;border:1px solid var(--line)}
 .snaps{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:1.2rem}.snaps img{width:100%;aspect-ratio:3/2;object-fit:cover;border:1px solid var(--line);filter:saturate(.9)}
@@ -447,9 +449,9 @@ const HL = {
   kart: ['32 parts', 'Fully constrained SolidWorks assembly · 102.7 kg · team of three'],
   tesla: ['4 cm sparks', 'From a 220 V wall outlet · high-school build with a friend · €282'],
   cube: ['1 wheel', 'One flywheel balances it on one side · ~€82'],
-  stock: ['50%+', 'Win rate on my trading signals · 60-day backtest, 3 trades a day']
+  stock: ['+107.8%', 'Simulated 29-day backtest · 85 trades · 51.8% win rate · −22.9% max drawdown']
 };
-const TH = {cube: 'img/cube-a.webp', tesla: 'img/tesla-a.webp', kart: 'img/gokart-a.webp'}, GAL = {cube: ['img/cube-b.webp', 'img/cube-c.webp', 'img/cube-a.webp'], tesla: ['img/tesla-b.webp', 'img/tesla-c.webp', 'img/tesla-d.webp'], kart: ['img/gokart-b.webp', 'img/gokart-c.webp', 'img/gokart-a.webp']};
+const TH = {cube: 'img/cube-a.webp', tesla: 'img/tesla-a.webp', kart: 'img/gokart-a.webp', stock: 'img/stock-chart.webp'}, GAL = {cube: ['img/cube-b.webp', 'img/cube-c.webp', 'img/cube-a.webp'], tesla: ['img/tesla-b.webp', 'img/tesla-c.webp', 'img/tesla-d.webp'], kart: ['img/gokart-b.webp', 'img/gokart-c.webp', 'img/gokart-a.webp'], stock: ['img/stock-kpis.webp', 'img/stock-chart.webp']};
 const kind = p => { const i = (p.id || '').toLowerCase(); return /kart/.test(i) ? 'kart' : /tesla|coil/.test(i) ? 'tesla' : /cube|balanc/.test(i) ? 'cube' : 'stock'; };
 const NOTES = {'fia-compliant-hobby-kart': '32 parts, every one constrained', 'spark-gap-tesla-coil': 'first prototype failed. rebuilt it.', 'self-balancing-reaction-wheel-cube': 'balances on one side. that\'s the hero →'};
 async function loadProjects() {
@@ -460,7 +462,7 @@ async function loadProjects() {
     ps.forEach((p, i) => {
       const k = kind(p), h = HL[k], c = document.createElement('div'); c.style.setProperty('--c', COL[i % 4]);
       c.className = 'p card fi' + (TH[k] ? ' has-th' : '');
-      c.innerHTML = `<span class="tape"></span>${TH[k] ? `<img class="th" src="${TH[k]}" alt="" loading="lazy">` : ''}<div class="sil">${SIL[k]}</div><div class="top m"><span>Mission ${p2(i + 1)}</span><b>● Complete</b></div>
+      c.innerHTML = `<span class="tape"></span>${TH[k] ? `<img class="th${k === 'stock' ? ' wide' : ''}" src="${TH[k]}" alt="" loading="lazy">` : ''}<div class="sil">${SIL[k]}</div><div class="top m"><span>Mission ${p2(i + 1)}</span><b>● Complete</b></div>
         <div class="big">${esc(h[0])}</div><div class="bigl">${esc(h[1])}</div>
         <h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p>${NOTES[p.id] ? `<div class="hand">${esc(NOTES[p.id])}</div>` : ''}
         <div class="ft"><div class="pills">${(p.pills || []).slice(0, 3).map(t => `<span class="pill">${esc(t)}</span>`).join('')}</div><span class="open">Mission report →</span></div>`;
@@ -475,7 +477,7 @@ async function loadProjects() {
 }
 const mb = $('mb');
 function openModal(p, i = 0) {
-  $('m-gal').innerHTML = (GAL[kind(p)] || []).map(u => `<img src="${u}" alt="" loading="lazy">`).join(''); $('m-sil').innerHTML = SIL[kind(p)]; $('m-sil').style.color = COL[i % 4];
+  $('m-gal').className = 'mgal' + (kind(p) === 'stock' ? ' stack' : ''); $('m-gal').innerHTML = (GAL[kind(p)] || []).map(u => `<img src="${u}" alt="" loading="lazy">`).join(''); $('m-sil').innerHTML = SIL[kind(p)]; $('m-sil').style.color = COL[i % 4];
   $('m-tag').textContent = p.tag; $('m-title').textContent = p.title; $('m-det').textContent = p.details;
   $('m-specs').style.display = (p.specs || []).length ? '' : 'none';
   $('m-specs').innerHTML = (p.specs || []).map(s => `<div><span>${esc(s.key)}</span><span>${esc(s.value)}</span></div>`).join('');
