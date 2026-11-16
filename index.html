@@ -189,10 +189,17 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
 }
 @media(max-width:520px){nav ul{gap:.9rem}nav ul li:nth-child(n+4):nth-child(-n+5){display:none}.plan{grid-template-columns:1fr}.rd{grid-template-columns:repeat(2,1fr)}.att{width:42%}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.fi{opacity:1;transform:none}}
+.snd2{display:flex;align-items:center;gap:.9rem;margin-top:1.1rem;flex-wrap:wrap}.snd2 .eq{width:84px;height:22px;margin:0}.snd2 .m{color:var(--mute);font-size:.62rem;flex:1;min-width:200px}
+.eq{display:flex;gap:4px;align-items:flex-end}.eq i{flex:1;height:100%;background:linear-gradient(var(--org),var(--mag));transform-origin:bottom;animation:eq 1s ease-in-out infinite alternate;animation-delay:calc(var(--k)*-.13s);animation-duration:calc(.5s + var(--k)*.04s)}
+@keyframes eq{from{transform:scaleY(.12)}to{transform:scaleY(1)}}
+.hero{grid-template-columns:1fr}h1{font-size:clamp(3.4rem,12vw,10.5rem)}.lede{max-width:40rem}
+.hud{position:fixed;left:1.2rem;bottom:1rem;z-index:100;color:var(--mute);font-size:.62rem;pointer-events:none;text-shadow:0 0 8px #000}.hud b{color:var(--astro);font-weight:400}
+@media(max-width:520px){.hud span{display:none}}
 </style>
 </head>
 <body>
 <div class="neb"></div><div class="planet"></div><canvas id="sky"></canvas>
+<div class="hud m" id="hud"></div>
 <nav>
   <a class="logo" href="#top">KS<b>//</b>ENG</a>
   <ul><li><a href="#deck">Deck</a></li><li><a href="#about">Crew</a></li><li><a href="#projects">Missions</a></li><li><a href="#skills">Systems</a></li><li><a href="#plan">Flight plan</a></li><li><a href="#contact">Comms</a></li></ul>
@@ -209,10 +216,6 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
     <div class="tele m"><div><small>Base</small><b>58.38°N 26.73°E</b></div><div><small>Local time</small><b id="clock">--:--</b></div><div><small>Next stop</small><b>Spacecraft design</b></div></div>
   </div>
 
-  <div class="p mini">
-    <div class="dh m"><span>Live · <b>KS-1 ascent</b></span><a href="#deck" style="color:var(--org);text-decoration:none">Take the controls ↓</a></div>
-    <canvas id="mini"></canvas>
-  </div>
 </div>
 
 <div class="wrap">
@@ -279,39 +282,10 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
       <p>Racing is where a lot of this started. Karting, 3D modelling and more competitions than I can count, always with the same two friends. We're <b style="color:var(--warm);font-weight:400">KMH Group</b>: Kristjan, Mikk and Hendrik, our initials. We made our own logo and carry it everywhere, even to individual competitions.</p>
       <p>I usually finish in the top 10 in whatever we enter. Most recently: 10th at the WRC Go-Kart Challenge in Lange Kardirada. When I'm not in class I'm tinkering with mechanical projects, sim racing in Assetto Corsa Competizione (ranked, on my own), or soldering something. One glider flight with an instructor was enough to make me want a pilot's licence, and that's the plan once the savings allow.</p>
       <div class="pills"><span class="pill">Karting</span><span class="pill">3D modelling</span><span class="pill">Sim racing · ACC</span><span class="pill">Mechanical tinkering</span><span class="pill">Future pilot</span></div>
+      <div class="snd2"><div class="eq"><i style="--k:0"></i><i style="--k:1"></i><i style="--k:2"></i><i style="--k:3"></i><i style="--k:4"></i><i style="--k:5"></i><i style="--k:6"></i><i style="--k:7"></i><i style="--k:8"></i><i style="--k:9"></i><i style="--k:10"></i><i style="--k:11"></i></div><span class="m">Soundtrack · Sabaton · Battle Beast · Muse · MandoTerror · Herald · System of a Down · Avatar · Phoebe Bridgers</span></div>
     </div>
   </div>
 
-  <div class="p snd fi">
-    <div>
-      <div class="m" style="color:var(--org)">Workshop frequencies</div>
-      <h3>Loud, on purpose</h3>
-      <p>Whatever I'm building, something heavy is playing: war stories set to power metal, space rock, a little Estonian chaos. I think best with the volume up.</p>
-      <div class="eq"><i style="--k:0"></i><i style="--k:1"></i><i style="--k:2"></i><i style="--k:3"></i><i style="--k:4"></i><i style="--k:5"></i><i style="--k:6"></i><i style="--k:7"></i><i style="--k:8"></i><i style="--k:9"></i><i style="--k:10"></i><i style="--k:11"></i><i style="--k:12"></i><i style="--k:13"></i><i style="--k:14"></i><i style="--k:15"></i><i style="--k:16"></i><i style="--k:17"></i><i style="--k:18"></i><i style="--k:19"></i><i style="--k:20"></i><i style="--k:21"></i><i style="--k:22"></i><i style="--k:23"></i></div>
-      <div class="arts"><span class="pill">Sabaton</span><span class="pill">Battle Beast</span><span class="pill">Muse</span><span class="pill">MandoTerror</span><span class="pill">Herald</span><span class="pill">System of a Down</span><span class="pill">Avatar</span><span class="pill">Phoebe Bridgers</span></div>
-    </div>
-    <div>
-      <div class="m" style="color:var(--mute);margin-bottom:.4rem">On repeat · if I had to pick</div>
-      <ol class="set"><li>En Livstid I Krig</li><li>Primo Victoria</li><li>Reign of Terror</li><li>Karolinens Bön</li><li>Ruina Imperii</li><li>Where Angels Fear to Fly</li><li>Wings of Light</li><li>Decadence</li><li>7 meest pandi sadamas pokri</li><li>The Bad Touch</li></ol>
-      <span class="hn" style="position:static;display:block;margin-top:.8rem">and a lot more. it's hard stuff.</span>
-    </div>
-  </div>
-  <div class="lore fi">
-    <div class="p">
-      <div class="m" style="color:var(--astro)">Kerbal Space Program · Jool mission</div>
-      <h3>Too deep</h3>
-      <p>I dipped into Jool and started falling. At the last second I lit the thrusters and clawed back out, but my fuel for the trip home was gone and my orbit was grazing the atmosphere, so the clock was running. The original craft was burning up during the rescue.</p>
-      <p>I got every Kerbal home anyway.</p>
-      <span class="hn" style="position:static;display:block">that's why I like engineering: margins are real</span>
-    </div>
-    <div class="p">
-      <div class="m" style="color:var(--astro)">Project Hail Mary · favourite scene</div>
-      <h3>Adrian</h3>
-      <p>Grace stepping out to see Adrian, and the astrophage suddenly showing up as red points of light. That's what the glowing red dots drifting behind this page are.</p>
-      <p>Something that small carrying that much energy is the kind of problem I want to work on.</p>
-      <span class="hn" style="position:static;display:block">go look at the background again</span>
-    </div>
-  </div>
 </section>
 
 <section id="projects">
@@ -469,6 +443,18 @@ loadProjects();
   for (let i = 0; i < 230; i++) st.push({x: Math.random(), y: Math.random(), z: .2 + Math.random() * .8, p: Math.random() * 6, w: Math.random() < .12});
   for (let i = 0; i < 34; i++) ap.push({x: Math.random(), y: Math.random(), vx: (Math.random() - .5) * .00004, vy: -.00002 - Math.random() * .00005, s: 1 + Math.random() * 2});
   const rk = [], fx = []; let nx = 2500;
+  const sh = {x: W * .72, y: H * .42, vx: 0, vy: 0, a: 0, f: 0, dead: 0}, trail = [], jool = ['Too deep. (Jool)', 'Fuel was for the way home', 'Unscheduled disassembly'];
+  let mx = 0, my = 0, lastMove = -1e9, fuel = 0;
+  const hud = () => `<b>●</b> Astrophage fuel: ${fuel} <span>· move to fly · click to burn · don't overdo it</span>`; $('hud').innerHTML = hud();
+  addEventListener('pointermove', e => { mx = e.clientX; my = e.clientY; lastMove = performance.now(); });
+  addEventListener('pointerdown', e => {
+    mx = e.clientX; my = e.clientY; lastMove = performance.now(); if (sh.dead > 0) return;
+    const dx = mx - sh.x, dy = my - sh.y, l = Math.hypot(dx, dy) || 1; sh.vx += dx / l * 9; sh.vy += dy / l * 9; sh.f = 1;
+    if (Math.hypot(sh.vx, sh.vy) > 20) {
+      for (let n = 0; n < 60; n++) { const a = Math.random() * 6.28, q = .5 + Math.random() * 3; fx.push({x: sh.x, y: sh.y, vx: Math.cos(a) * q, vy: Math.sin(a) * q, l: 1}); }
+      fx.push({x: sh.x, y: sh.y, txt: jool[Math.random() * 3 | 0], l: 1}); sh.dead = 1200; fuel = Math.max(0, fuel - 3); $('hud').innerHTML = hud();
+    }
+  });
   const draw = t => {
     c.clearRect(0, 0, W, H);
     for (const s of st) {
@@ -499,6 +485,21 @@ loadProjects();
       c.fillStyle = g; c.fillRect(a.x * W - a.s * 5, a.y * H - a.s * 5, a.s * 10, a.s * 10);
     }
     c.globalCompositeOperation = 'source-over';
+    const tg = t - lastMove > 3500 ? [W * .72 + Math.cos(t / 1500) * 150, H * .42 + Math.sin(t / 1100) * 90] : [mx, my];
+    if (sh.dead > 0) { sh.dead -= 16; if (sh.dead <= 0) { sh.x = tg[0]; sh.y = tg[1]; sh.vx = sh.vy = 0; trail.length = 0; } }
+    else {
+      sh.vx += (tg[0] - sh.x) * .0011 * 16; sh.vy += (tg[1] - sh.y) * .0011 * 16; sh.vx *= .955; sh.vy *= .955; sh.x += sh.vx; sh.y += sh.vy;
+      const sp = Math.hypot(sh.vx, sh.vy); if (sp > .5) { const d = Math.atan2(sh.vy, sh.vx) + 1.5708 - sh.a; sh.a += Math.atan2(Math.sin(d), Math.cos(d)) * .12; }
+      sh.f *= .92; trail.push([sh.x, sh.y]); if (trail.length > 36) trail.shift();
+      for (const a of ap) { const ax = a.x * W, ay = a.y * H, d = Math.hypot(sh.x - ax, sh.y - ay); if (d < 170) { a.x += (sh.x - ax) / W * .014; a.y += (sh.y - ay) / H * .014; } if (d < 18) { fuel++; $('hud').innerHTML = hud(); a.x = Math.random(); a.y = Math.random() < .5 ? -.02 : 1.02; } }
+      c.globalCompositeOperation = 'lighter'; c.lineWidth = 3; c.lineCap = 'round';
+      for (let i = 1; i < trail.length; i++) { c.strokeStyle = `rgba(255,${90 + i * 3},40,${i / trail.length * .4})`; c.beginPath(); c.moveTo(trail[i - 1][0], trail[i - 1][1]); c.lineTo(trail[i][0], trail[i][1]); c.stroke(); }
+      c.globalCompositeOperation = 'source-over';
+      c.save(); c.translate(sh.x, sh.y); c.rotate(sh.a); c.scale(1.5, 1.5); const L = Math.min(sp * 3 + 8, 34) + sh.f * 30 + Math.random() * 4;
+      const g = c.createLinearGradient(0, 8, 0, 8 + L); g.addColorStop(0, 'rgba(255,240,180,.95)'); g.addColorStop(.5, 'rgba(255,120,40,.7)'); g.addColorStop(1, 'rgba(255,60,30,0)'); c.fillStyle = g; c.beginPath(); c.moveTo(-4, 8); c.lineTo(4, 8); c.lineTo(0, 8 + L); c.fill();
+      c.fillStyle = '#12060a'; c.strokeStyle = '#ffc46b'; c.lineWidth = 1.6; c.shadowColor = '#ffc46b'; c.shadowBlur = 12; c.fillRect(-5, -14, 10, 22); c.strokeRect(-5, -14, 10, 22);
+      c.fillStyle = '#ff3b1f'; c.beginPath(); c.moveTo(-5, -14); c.lineTo(0, -23); c.lineTo(5, -14); c.fill(); c.beginPath(); c.moveTo(-5, 8); c.lineTo(-10, 14); c.lineTo(-5, 1); c.moveTo(5, 8); c.lineTo(10, 14); c.lineTo(5, 1); c.fill(); c.restore();
+    }
     if (!still) requestAnimationFrame(draw);
   };
   requestAnimationFrame(draw);
@@ -605,40 +606,6 @@ const att = {on: true, th: .12, kick(v) { this.w += v; }, w: 0, rpm: 0};
   requestAnimationFrame(frame);
 })();
 
-// ── Hero: rocket ascent loop ──
-(() => {
-  const cv = $('mini'), c = cv.getContext('2d'), M = '"Share Tech Mono",monospace';
-  let W, T = -3, last = performance.now(), sep = null;
-  const rs = () => { const d = devicePixelRatio || 1; W = cv.clientWidth; cv.width = cv.height = W * d; c.setTransform(d, 0, 0, d, 0, 0); };
-  rs(); addEventListener('resize', rs);
-  const st = Array.from({length: 70}, () => [Math.random(), Math.random(), .4 + Math.random()]);
-  const body = (w, h, col) => { c.fillStyle = '#12060a'; c.strokeStyle = col; c.lineWidth = 2; c.fillRect(-w / 2, -h, w, h); c.strokeRect(-w / 2, -h, w, h); };
-  const flame = (L, w) => { const g = c.createLinearGradient(0, 0, 0, L); g.addColorStop(0, 'rgba(255,240,180,.95)'); g.addColorStop(.4, 'rgba(255,120,40,.7)'); g.addColorStop(1, 'rgba(255,60,30,0)'); c.fillStyle = g; c.beginPath(); c.moveTo(-w, 0); c.lineTo(w, 0); c.lineTo(0, L * (.85 + Math.random() * .3)); c.fill(); };
-  const f = now => {
-    T += Math.min((now - last) / 1000, .05) * (still ? 0 : 1); last = now; if (T > 17) { T = -3; sep = null; }
-    const t = Math.max(T, 0), alt = .8 * t * t, v = .52 * t, rise = Math.min(alt * 1.1, W * .42), gy = W * .86 + alt * 1.1 - rise;
-    c.clearRect(0, 0, W, W);
-    const sky = c.createLinearGradient(0, 0, 0, W); sky.addColorStop(0, 'rgba(5,3,10,0)'); sky.addColorStop(1, `rgba(255,110,50,${Math.max(0, .3 - alt / 400)})`); c.fillStyle = sky; c.fillRect(0, 0, W, W);
-    c.fillStyle = '#efe5d8'; st.forEach(([x, y, z]) => c.fillRect(x * W, (y * W + alt * z * .8) % W, z * 1.6, z * 1.6));
-    c.fillStyle = '#1a0d22'; c.fillRect(0, gy, W, W); c.strokeStyle = 'rgba(255,170,100,.3)'; c.beginPath(); c.moveTo(0, gy); c.lineTo(W, gy); c.stroke();
-    const rx = W * .42 + (t > 6 ? Math.min((t - 6) * W * .022, W * .3) * (t - 6) / 11 : 0), ry = W * .86 - rise, tilt = t > 6 ? Math.min((t - 6) * .1, 1.15) : 0, u = W * .035;
-    if (gy < W + 20) { c.strokeStyle = 'rgba(165,151,180,.6)'; c.lineWidth = 2; c.strokeRect(W * .42 + u * 1.6, gy - W * .3, u * .8, W * .3); for (let i = 1; i < 6; i++) { c.beginPath(); c.moveTo(W * .42 + u * 1.6, gy - W * .05 * i); c.lineTo(W * .42 + u * 2.4, gy - W * .05 * (i + 1)); c.stroke(); } }
-    c.save(); c.translate(rx, ry); c.rotate(tilt);
-    if (t < 8) { c.save(); body(u, -0, '#ffc46b'); c.restore(); }
-    const s1 = t < 8; if (s1) { c.save(); c.translate(0, 0); body(u, W * .13, '#ffc46b'); if (T > 0) flame(W * .14 + Math.sin(now / 40) * 4, u * .45); c.restore(); }
-    c.save(); c.translate(0, s1 ? -W * .13 : 0); body(u * .8, W * .1, '#ff8a3d'); c.fillStyle = '#ff3b1f'; c.beginPath(); c.moveTo(-u * .4, -W * .1); c.lineTo(0, -W * .15); c.lineTo(u * .4, -W * .1); c.fill(); if (!s1 && T > 0) flame(W * .08 + Math.sin(now / 40) * 3, u * .3); c.restore();
-    if (t >= 8 && !sep) sep = {x: 0, y: 0, vx: -.4, vy: .6, r: 0};
-    c.restore();
-    if (sep) { sep.x += sep.vx; sep.y += sep.vy; sep.vy += .03; sep.r += .02; c.save(); c.translate(rx + sep.x * 4 - 8, ry + sep.y * 3 + 20); c.rotate(tilt - sep.r); body(u, W * .13, '#a597b4'); c.restore(); }
-    c.fillStyle = '#ffc46b'; c.font = `${Math.max(10, W * .026)}px ${M}`;
-    c.fillText(T < 0 ? 'T-' + Math.ceil(-T).toString().padStart(2, '0') : 'T+' + t.toFixed(1), W * .04, W * .08);
-    c.fillStyle = '#a597b4'; c.fillText(`ALT ${alt.toFixed(0)} km`, W * .04, W * .13); c.fillText(`VEL ${v.toFixed(1)} km/s`, W * .04, W * .18);
-    const ev = T < 0 ? 'ALL SYSTEMS GO' : t < 3 ? 'LIFTOFF' : t < 5.5 ? 'MAX-Q' : t < 8 ? 'GRAVITY TURN' : t < 10 ? 'STAGE SEP' : t < 15 ? 'SECOND STAGE' : 'ORBIT ✦';
-    c.fillStyle = '#ff3b1f'; c.textAlign = 'right'; c.fillText(ev, W * .96, W * .08); c.textAlign = 'left';
-    requestAnimationFrame(f);
-  };
-  requestAnimationFrame(f);
-})();
 </script>
 </body>
 </html>
