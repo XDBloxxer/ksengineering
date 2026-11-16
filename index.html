@@ -539,12 +539,23 @@ const ADV = [
   {img: 'img/kart-a.webp', tag: 'Karting · 2026', title: 'Student karting cup', cap: 'Üliõpilaste karikavõistlused kardispordis 2026. Flat out down the straight, with the background blurred by the pan.'},
   {img: 'img/kart-b.webp', tag: 'Karting · 2026', title: 'Leaning into the corner', cap: 'Same championship, a different lap: a kart on the limit, with the red-and-white kerbs just inside.'},
   {img: 'img/kart-c.webp', tag: 'Karting · 2026', title: 'Out of the apex', cap: 'Clean line through the bend, the pit lane and grandstand in the background.'},
-  {tag: 'Gliding', title: 'First glider flight', cap: 'One flight with an instructor, and I wanted a pilot\'s licence.'},
+  {img: 'img/glider-cockpit-pilot.webp', pos: '50% 30%', tag: 'Gliding', title: 'First glider flight', cap: 'One flight with an instructor, and I wanted a pilot\'s licence.'},
+  {img: 'img/glider-hands-ears.webp', pos: '50% 30%', tag: 'Gliding', title: 'Ready on the grass', cap: 'Strapped in under a heavy sky, before the flight.'},
+  {img: 'img/glider-nose.webp', pos: '50% 45%', tag: 'Gliding', title: 'Nose-on', cap: 'The glider canopy and red nose, straight on from the airfield.'},
+  {img: 'img/glider-crew.webp', tag: 'Gliding', title: 'Airfield crew', cap: 'The group at the airfield, lined up under the wing and propeller.'},
+  {img: 'img/tug-plane.webp', tag: 'Gliding', title: 'On the airfield', cap: 'The propeller aircraft parked on the grass strip.'},
+  {img: 'img/tug-cabin.webp', pos: '50% 55%', tag: 'Gliding', title: 'Inside the cabin', cap: 'Headset on, ready to go.'},
+  {img: 'img/tug-panel.webp', tag: 'Gliding', title: 'Instrument panel', cap: 'Round gauges, radio and the control column up close.'},
+  {img: 'img/kart-student-2025.webp', tag: 'Karting · 2025', title: 'Student cup 2025', cap: 'Üliõpilaste karikavõistlused kardispordis 2025: trackside before a run.'},
+  {img: 'img/kart-lange-podium.webp', tag: 'Karting · 2025', title: 'Lange podium', cap: 'Vuntsid rajal 2025 at Lange Kardihall, the whole field with medals after the race.'},
+  {img: 'img/kart-wrc-2026.webp', pos: '50% 30%', tag: 'Karting · 2026', title: 'WRC go-kart challenge', cap: 'Lange Kardihall, 2026: in the kart and ready on the grid.'},
+  {img: 'img/kart-pro.webp', pos: '50% 35%', tag: 'Karting', title: 'Pro kart', cap: 'Out on a proper pro kart, a big step up from rental karts.'},
+  {img: 'img/kart-gear.webp', tag: 'Karting', title: 'Gearing up', cap: 'Gloves on the helmet, just before heading out.'},
   {tag: 'Sim racing', title: 'Assetto Corsa Competizione', cap: 'Ranked racing at home, on my own.'}
 ];
 const advList = ADV.filter(a => a.img || SHOW_SLOTS);
 $('adv').innerHTML = advList.map((a, i) => `<figure class="fi" data-a="${i}">
-  <div class="ph${a.img ? '' : ' slot'}">${a.img ? `<img src="${esc(a.img)}" alt="${esc(a.title)}" loading="lazy">` : 'Photo incoming'}</div>
+  <div class="ph${a.img ? '' : ' slot'}">${a.img ? `<img src="${esc(a.img)}" alt="${esc(a.title)}" loading="lazy"${a.pos ? ` style="object-position:${esc(a.pos)}"` : ''}>` : 'Photo incoming'}</div>
   <figcaption><span class="m">${esc(a.tag)}</span><b>${esc(a.title)}</b><p>${esc(a.cap)}</p></figcaption></figure>`).join('');
 const lb = $('lb');
 const closeLb = () => lb.classList.remove('open');
