@@ -338,7 +338,11 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
         <div><dt>Training</dt><dd>Aeronautical engineering, Estonian Aviation Academy · year 2 (since 2025)</dd></div>
         <div><dt>Focus</dt><dd>Mechanical / Aerospace</dd></div>
         <div><dt>Next</dt><dd>Spacecraft design, after graduating (2028–29)</dd></div>
-        <div><dt>Kit</dt><dd>CATIA, ANSYS, KiCad</dd></div>
+        <div><dt>CAD</dt><dd>SolidWorks (CSWA) · Onshape · Fusion</dd></div>
+        <div><dt>Build</dt><dd>3D printing · soldering · metals &amp; composites</dd></div>
+        <div><dt>Electronics</dt><dd>High voltage · ESP32 firmware · KiCad</dd></div>
+        <div><dt>Code</dt><dd>Python · MATLAB / Simulink</dd></div>
+        <div><dt>Learning</dt><dd>FEA, CFD, ANSYS / Fluent</dd></div>
         <div><dt>Languages</dt><dd>Estonian (native) · English C2 · German B2</dd></div>
         <div><dt>Certs</dt><dd>CSWA · CTF Tech cybersecurity · driving licence</dd></div>
         <div><dt>Status</dt><dd class="ok">● Available for work</dd></div>
@@ -537,9 +541,10 @@ async function loadProjects() {
     $('grid').before(bay);
   } catch (e) { $('err').style.display = 'block'; }
 }
-const mb = $('mb');
+const mb = $('mb'); let galItems = [];
 function openModal(p, i = 0) {
-  $('m-gal').className = 'mgal' + (kind(p) === 'stock' ? ' stack' : ''); $('m-gal').innerHTML = (GAL[kind(p)] || []).map(u => `<img src="${u}" alt="" loading="lazy">`).join(''); $('m-sil').innerHTML = SIL[kind(p)]; $('m-sil').style.color = COL[i % 4];
+  $('m-gal').className = 'mgal' + (kind(p) === 'stock' ? ' stack' : ''); $('m-gal').innerHTML = (GAL[kind(p)] || []).map((u, j) => `<img src="${u}" alt="${esc(p.title)} photo ${j + 1}" loading="lazy" data-g="${j}" tabindex="0" role="button" style="cursor:zoom-in">`).join('');
+  galItems = (GAL[kind(p)] || []).map((u, j) => ({img: u, tag: 'Project', title: p.title, cap: 'Photo ' + (j + 1)})); $('m-sil').innerHTML = SIL[kind(p)]; $('m-sil').style.color = COL[i % 4];
   $('m-tag').textContent = p.tag; $('m-title').textContent = p.title; $('m-det').textContent = p.details;
   $('m-specs').style.display = (p.specs || []).length ? '' : 'none';
   $('m-specs').innerHTML = (p.specs || []).map(s => `<div><span>${esc(s.key)}</span><span>${esc(s.value)}</span></div>`).join('');
@@ -549,7 +554,7 @@ function openModal(p, i = 0) {
 }
 const closeModal = () => { mb.classList.remove('open'); document.body.style.overflow = ''; };
 $('m-x').onclick = closeModal; mb.addEventListener('click', e => { if (e.target === mb) closeModal(); });
-addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+addEventListener('keydown', e => { if (e.key === 'Escape' && !$('lb').classList.contains('open')) closeModal(); });
 // Adventures gallery. To add one: drop a photo in img/ and add a line here.
 // Entries without "img" stay hidden (set SHOW_SLOTS = true to preview them as "Photo incoming").
 const SHOW_SLOTS = false;
@@ -601,7 +606,10 @@ function showLb(i) {
   lb.querySelector('div').innerHTML = `<span class="ct">${esc(a.tag)} · ${cur + 1}/${view.length}</span><b>${esc(a.title)}</b>${esc(a.cap)}`;
   lb.classList.add('open');
 }
-const closeLb = () => lb.classList.remove('open');
+const closeLb = () => { lb.classList.remove('open'); sizeView(); };
+const openGal = e => { const im = e.target.closest('img[data-g]'); if (!im) return; view = galItems; showLb(+im.dataset.g); };
+$('m-gal').addEventListener('click', openGal);
+$('m-gal').addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openGal(e); } });
 $('advtog').onclick = () => setOpen(!isOpen, isOpen);
 $('see-adv').addEventListener('click', () => setOpen(true, false));
 $('advf').onclick = e => { const b = e.target.closest('button'); if (b) { advF = b.dataset.c; renderAdv(); } };
