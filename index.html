@@ -253,6 +253,8 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
         <div><dt>Focus</dt><dd>Mechanical / Aerospace</dd></div>
         <div><dt>Next</dt><dd>Spacecraft design, after graduating (2028–29)</dd></div>
         <div><dt>Kit</dt><dd>CATIA, ANSYS, KiCad</dd></div>
+        <div><dt>Languages</dt><dd>Estonian (native) · English C2 · German B2</dd></div>
+        <div><dt>Certs</dt><dd>CSWA · CTF Tech cybersecurity · driving licence</dd></div>
         <div><dt>Status</dt><dd class="ok">● Available for work</dd></div>
       </dl>
       <span class="hn">that's me. the cockpit is my office</span>
@@ -264,8 +266,8 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
       <div class="m" style="color:var(--org)">Off duty · Team KMH</div>
       <h3>Pit crew</h3>
       <p>Racing is where a lot of this started. Karting, 3D modelling and more competitions than I can count, always with the same two friends. We're <b style="color:var(--warm);font-weight:400">KMH Group</b>: Kristjan, Mikk and Hendrik, our initials. We made our own logo and carry it everywhere, even to individual competitions.</p>
-      <p>When I'm not in class I'm tinkering with mechanical projects or sim racing.</p>
-      <div class="pills"><span class="pill">Karting</span><span class="pill">3D modelling</span><span class="pill">Sim racing</span><span class="pill">Mechanical tinkering</span></div>
+      <p>I usually finish in the top 10 in whatever we enter. When I'm not in class I'm tinkering with mechanical projects, sim racing, or soldering something. One glider flight with an instructor was enough to make me want a pilot's licence, and that's the plan once the savings allow.</p>
+      <div class="pills"><span class="pill">Karting</span><span class="pill">3D modelling</span><span class="pill">Sim racing</span><span class="pill">Mechanical tinkering</span><span class="pill">Future pilot</span></div>
     </div>
   </div>
 </section>
@@ -279,7 +281,7 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
 <section id="skills">
   <div class="sh fi"><span class="m">04</span><h2>Ship systems</h2></div>
   <div class="skills" id="sg"></div>
-  <span class="hn" style="position:static;display:block;margin-top:1.4rem">honest numbers. still climbing.</span>
+  <span class="hn" style="position:static;display:block;margin-top:1.4rem">honest numbers. FEA and CFD classes are next.</span>
 </section>
 
 <section id="plan">
@@ -353,13 +355,14 @@ $('form').addEventListener('submit', e => {
 
 // Skills
 const SK = {
-  'Mechanical & Structural': [['FEA / Structural Analysis','Working',5.5],['CAD (CATIA, SolidWorks, Onshape)','Strong',7],['GD&T / DFM','Learning',4]],
-  'Aerospace': [['Aerodynamics / CFD','Learning',4],['Propulsion Systems','Learning',3],['Avionics Integration','Learning',3]],
-  'Electrical & Embedded': [['PCB Design (KiCad)','Working',5],['Embedded C / Firmware','Working',5],['Power Electronics','Learning',4]],
-  'Software & Simulation': [['Python (scientific)','Working',6.5],['MATLAB / Simulink','Learning',4],['ANSYS / Fluent','Learning',4.5]]
+  'Mechanical & CAD': [['SolidWorks','Solid · CSWA certified',8],['Onshape','Solid · daily driver',8],['Fusion','Solid',8],['GD&T / DFM','Hands-on',5],['FEA / structural analysis','Starting · classes soon',3]],
+  'Hands-on build': [['3D printing','Daily',7],['Soldering','Daily',null],['Metals & composites','Worked with',null],['Construction','Summer jobs',null]],
+  'Aerospace': [['Avionics integration','Basics',4],['Aerodynamics / CFD','Starting · classes soon',2],['Propulsion systems','Starting',2]],
+  'Electrical & Embedded': [['Power electronics / high voltage','Solid · Tesla coil',8],['Embedded C / firmware','Working · ESP32',6],['PCB design (KiCad)','Basics',4]],
+  'Software & Simulation': [['Python','Working',6],['MATLAB / Simulink','Working',6],['Machine learning','Learning · AI-assisted',5],['ANSYS / Fluent','Starting',2],['Cybersecurity','CTF Tech course cert',null]]
 };
 $('sg').innerHTML = Object.entries(SK).map(([g, it], k) => `<div class="p sg fi"><h3>${esc(g)}<span>SYS-0${k+1}</span></h3>${it.map(([n, l, v]) =>
-  `<div class="sk"><div><span>${esc(n)}</span><small>${l}</small></div><div class="rule">${Array.from({length:10}, (_, i) => `<i class="${i < Math.round(v) ? 'on' : ''}" style="--n:${i}"></i>`).join('')}</div></div>`).join('')}</div>`).join('');
+  `<div class="sk"><div><span>${esc(n)}</span><small>${esc(l)}</small></div>${v == null ? '' : `<div class="rule">${Array.from({length:10}, (_, i) => `<i class="${i < v ? 'on' : ''}" style="--n:${i}"></i>`).join('')}</div>`}</div>`).join('')}</div>`).join('');
 
 // Projects
 const COL = ['var(--org)', 'var(--pur)', 'var(--mag)', 'var(--warm)'];
