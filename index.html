@@ -74,7 +74,7 @@ h2{font:700 clamp(2rem,4.6vw,3.4rem)/1 var(--disp);text-transform:uppercase}
 .about em{color:var(--warm)}
 .crew{padding:1.4rem;transform:rotate(1deg)}
 .badge{display:flex;gap:1rem;align-items:center;margin-bottom:1.1rem;padding-bottom:1rem;border-bottom:1px dashed var(--line)}
-.ini{width:76px;height:76px;display:grid;place-items:center;font:700 2rem var(--disp);background:linear-gradient(135deg,var(--pur),var(--org));color:#12060a;clip-path:polygon(0 0,100% 0,100% 80%,80% 100%,0 100%)}
+.ini{width:96px;height:96px;object-fit:cover;display:grid;place-items:center;font:700 2rem var(--disp);background:linear-gradient(135deg,var(--pur),var(--org));color:#12060a;clip-path:polygon(0 0,100% 0,100% 80%,80% 100%,0 100%)}
 .bar{height:22px;width:120px;background:repeating-linear-gradient(90deg,var(--tx) 0 2px,transparent 2px 4px,var(--tx) 4px 5px,transparent 5px 9px);opacity:.7;margin-top:.4rem}
 .crew dl div{display:flex;justify-content:space-between;gap:1rem;padding:.5rem 0;border-bottom:1px solid rgba(255,170,100,.12);font-size:.98rem}
 .crew dt{font:400 .66rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);padding-top:.25rem}.crew dd{text-align:right}
@@ -163,6 +163,12 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
 .bay div:hover{border-color:var(--c);box-shadow:0 0 30px -8px var(--c)}
 .bay svg{color:var(--c);opacity:.85}.bay .m{display:block;color:var(--mute);font-size:.6rem;margin-top:.4rem}
 .mh{position:relative;overflow:hidden}.msil{position:absolute;right:4rem;top:.6rem;width:230px;opacity:.3;pointer-events:none}
+.pit{display:grid;grid-template-columns:190px 1fr;gap:2.2rem;align-items:center;padding:1.8rem;margin-top:3.5rem}
+.pit h3{font:700 1.8rem var(--disp);text-transform:uppercase;margin:.2rem 0 .6rem}.pit p{margin-bottom:.8rem;color:#d8cce0}
+.sticker{background:#fff;padding:.8rem;transform:rotate(-3deg);box-shadow:0 10px 34px rgba(0,0,0,.55);position:relative}
+.sticker::before{content:'';position:absolute;top:-11px;left:50%;width:70px;height:22px;margin-left:-35px;background:rgba(255,230,170,.5);transform:rotate(2deg)}
+.sticker img{width:100%;display:block}
+@media(max-width:900px){.pit{grid-template-columns:1fr}.sticker{max-width:170px}}
 @media(max-width:900px){.mini,#deck .deck{justify-self:stretch;max-width:none}.bay{grid-template-columns:repeat(2,1fr)}.msil{width:130px;right:3.2rem;opacity:.2}}
 @media(max-width:900px){
   .hero,.about,.contact,.grid{grid-template-columns:1fr}.card:nth-child(even){margin-top:0}.plan{grid-template-columns:1fr 1fr;row-gap:2.6rem}
@@ -236,19 +242,30 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
     <div>
       <p>I'm a <em>multi-disciplinary engineer</em> who can't stay in one lane. Mechanical design, structures, electronics and aerospace keep pulling me back in, and the most interesting problems sit where they collide.</p>
       <p>I work from <em>first principles</em>: why does it work, not just that it does. Whether it's a load-bearing frame or a PCB, I start the same way. Understand it, build it, break it, fix it.</p>
-      <p>The long game is <em>spacecraft design</em>: rockets, propulsion, structures that survive launch and live in vacuum. Everything on this page is practice for that.</p>
+      <p>The long game is <em>spacecraft design</em>: rockets, propulsion, structures that survive launch and live in vacuum. I plan to start right after the Academy, around 2028–29, and everything on this page is practice for that.</p>
     </div>
     <div class="p crew">
-      <div class="badge"><div class="ini">KS</div><div><div class="m" style="color:var(--org)">Crew ID · KS-01</div><div class="bar"></div></div></div>
+      <div class="badge"><img class="ini" src="assets/kristjan.jpg" alt="Kristjan Sarapuu in a cockpit"><div><div class="m" style="color:var(--org)">Crew ID · KS-01</div><div class="bar"></div></div></div>
       <dl>
         <div><dt>Name</dt><dd>Kristjan Sarapuu</dd></div>
         <div><dt>Base</dt><dd>Tartu, Estonia</dd></div>
-        <div><dt>Training</dt><dd>Aeronautical engineering, Estonian Aviation Academy</dd></div>
+        <div><dt>Training</dt><dd>Aeronautical engineering, Estonian Aviation Academy · year 2 (since 2025)</dd></div>
         <div><dt>Focus</dt><dd>Mechanical / Aerospace</dd></div>
+        <div><dt>Next</dt><dd>Spacecraft design, after graduating (2028–29)</dd></div>
         <div><dt>Kit</dt><dd>CATIA, ANSYS, KiCad</dd></div>
         <div><dt>Status</dt><dd class="ok">● Available for work</dd></div>
       </dl>
-      <span class="hn">(photo goes here eventually)</span>
+      <span class="hn">that's me. the cockpit is my office</span>
+    </div>
+  </div>
+  <div class="p pit fi">
+    <div class="sticker"><img src="assets/kmh-logo.png" alt="KMH Group logo"></div>
+    <div>
+      <div class="m" style="color:var(--org)">Off duty · Team KMH</div>
+      <h3>Pit crew</h3>
+      <p>Racing is where a lot of this started. Karting, 3D modelling and more competitions than I can count, always with the same two friends. We have our own logo, KMH Group, and we carry it everywhere, even to individual competitions.</p>
+      <p>When I'm not in class I'm tinkering with mechanical projects or sim racing.</p>
+      <div class="pills"><span class="pill">Karting</span><span class="pill">3D modelling</span><span class="pill">Sim racing</span><span class="pill">Mechanical tinkering</span></div>
     </div>
   </div>
 </section>
@@ -262,13 +279,14 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
 <section id="skills">
   <div class="sh fi"><span class="m">04</span><h2>Ship systems</h2></div>
   <div class="skills" id="sg"></div>
+  <span class="hn" style="position:static;display:block;margin-top:1.4rem">honest numbers. still climbing.</span>
 </section>
 
 <section id="plan">
   <div class="sh fi"><span class="m">05</span><h2>Flight plan</h2></div>
   <div class="plan fi">
-    <div class="wp now"><span class="m" style="color:var(--astro)">T-0 · now</span><h4>Aeronautical engineering</h4><p>Estonian Aviation Academy, building real hardware on the side.</p></div>
-    <div class="wp"><span class="m" style="color:var(--org)">Next burn</span><h4>Spacecraft design</h4><p>Further study aimed at designing vehicles that leave the atmosphere.</p></div>
+    <div class="wp now"><span class="m" style="color:var(--astro)">T-0 · now</span><h4>Aeronautical engineering</h4><p>Year 2 at the Estonian Aviation Academy (started 2025), building real hardware on the side.</p></div>
+    <div class="wp"><span class="m" style="color:var(--org)">Next burn · ~2028–29</span><h4>Spacecraft design</h4><p>Straight after the Academy: further study aimed at designing vehicles that leave the atmosphere.</p></div>
     <div class="wp"><span class="m" style="color:var(--mag)">Transfer</span><h4>Rockets &amp; propulsion</h4><p>Structures, engines, and everything in between that has to survive the ride.</p></div>
     <div class="wp"><span class="m" style="color:var(--pur)">Destination</span><h4>Out there</h4><p>Making things that work where nobody can walk over and fix them.</p><span class="hn">no pressure</span></div>
   </div>
@@ -282,8 +300,8 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
       <p>Open to engineering roles, freelance projects, research collaboration, and good conversations about things that shouldn't work but do.</p>
       <div class="cl">
         <a id="mail" href="#"><b>@</b><span id="mail-t"></span></a>
-        <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener"><b>in</b>linkedin.com/in/yourprofile</a>
-        <a href="https://github.com/yourusername" target="_blank" rel="noopener"><b>gh</b>github.com/yourusername</a>
+        <a href="https://www.linkedin.com/in/kristjan-sarapuu-0086913a9/" target="_blank" rel="noopener"><b>in</b>linkedin.com/in/kristjan-sarapuu</a>
+        <a href="https://github.com/XDBloxxer" target="_blank" rel="noopener"><b>gh</b>github.com/XDBloxxer</a>
       </div>
     </div>
     <form class="p" id="form">
@@ -312,7 +330,7 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
 
 <script>
 // ── EDIT ME ──
-const EMAIL = 'you@email.com';
+const EMAIL = 'kristjan.sarapuu@hotmail.com';
 // ─────────────
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -335,10 +353,10 @@ $('form').addEventListener('submit', e => {
 
 // Skills
 const SK = {
-  'Mechanical & Structural': [['FEA / Structural Analysis','Advanced',9],['CAD (CATIA, SolidWorks)','Advanced',9],['GD&T / DFM','Proficient',7.5]],
-  'Aerospace': [['Aerodynamics / CFD','Proficient',8],['Propulsion Systems','Proficient',7],['Avionics Integration','Intermediate',6]],
-  'Electrical & Embedded': [['PCB Design (KiCad)','Proficient',8],['Embedded C / Firmware','Proficient',7.5],['Power Electronics','Intermediate',6]],
-  'Software & Simulation': [['Python (scientific)','Advanced',8.5],['MATLAB / Simulink','Proficient',8],['ANSYS / Fluent','Proficient',7.5]]
+  'Mechanical & Structural': [['FEA / Structural Analysis','Working',5.5],['CAD (CATIA, SolidWorks, Onshape)','Strong',7],['GD&T / DFM','Learning',4]],
+  'Aerospace': [['Aerodynamics / CFD','Learning',4],['Propulsion Systems','Learning',3],['Avionics Integration','Learning',3]],
+  'Electrical & Embedded': [['PCB Design (KiCad)','Working',5],['Embedded C / Firmware','Working',5],['Power Electronics','Learning',4]],
+  'Software & Simulation': [['Python (scientific)','Working',6.5],['MATLAB / Simulink','Learning',4],['ANSYS / Fluent','Learning',4.5]]
 };
 $('sg').innerHTML = Object.entries(SK).map(([g, it], k) => `<div class="p sg fi"><h3>${esc(g)}<span>SYS-0${k+1}</span></h3>${it.map(([n, l, v]) =>
   `<div class="sk"><div><span>${esc(n)}</span><small>${l}</small></div><div class="rule">${Array.from({length:10}, (_, i) => `<i class="${i < Math.round(v) ? 'on' : ''}" style="--n:${i}"></i>`).join('')}</div></div>`).join('')}</div>`).join('');
@@ -353,10 +371,10 @@ const SIL = {
   stock: SV('<path d="M20 108H190"/><path d="M36 70V102M62 60V96M88 66V94M114 44V84M140 36V72M166 22V64"/><rect x="30" y="78" width="12" height="16"/><rect x="56" y="68" width="12" height="18"/><rect x="82" y="72" width="12" height="14"/><rect x="108" y="52" width="12" height="24"/><rect x="134" y="44" width="12" height="20"/><rect x="160" y="30" width="12" height="26"/><path d="M26 92L68 78L112 56L146 42L184 16"/>')
 };
 const HL = {
-  kart: ['32 parts', 'Fully constrained SolidWorks assembly · 102.7 kg'],
-  tesla: ['4 cm sparks', 'From a 220 V wall outlet · €282 build'],
+  kart: ['32 parts', 'Fully constrained SolidWorks assembly · 102.7 kg · team of three'],
+  tesla: ['4 cm sparks', 'From a 220 V wall outlet · high-school build with a friend · €282'],
   cube: ['1 wheel', 'One flywheel balances it on a corner · ~€82'],
-  stock: ['50%+', 'Win rate on my trading signals']
+  stock: ['50%+', 'Win rate on my trading signals · 60-day backtest, 3 trades a day']
 };
 const kind = p => { const i = (p.id || '').toLowerCase(); return /kart/.test(i) ? 'kart' : /tesla|coil/.test(i) ? 'tesla' : /cube|balanc/.test(i) ? 'cube' : 'stock'; };
 const NOTES = {'fia-compliant-hobby-kart': '32 parts, every one constrained', 'spark-gap-tesla-coil': 'first prototype failed. rebuilt it.', 'self-balancing-reaction-wheel-cube': 'balances on one corner. that\'s the hero →'};
