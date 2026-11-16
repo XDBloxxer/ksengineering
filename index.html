@@ -167,6 +167,23 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
 .sticker{background:radial-gradient(circle at 50% 40%,rgba(90,60,170,.35),rgba(8,4,16,.92) 75%);padding:1rem;border:1px solid var(--line);transform:rotate(-3deg);box-shadow:0 10px 34px rgba(0,0,0,.55),0 0 30px -8px var(--pur);position:relative}
 .sticker::before{content:'';position:absolute;top:-11px;left:50%;width:70px;height:22px;margin-left:-35px;background:rgba(255,230,170,.3);transform:rotate(2deg)}
 .sticker img{width:100%;display:block}
+
+.kmhx{padding:1.8rem;margin-top:3rem}
+.kmhx h3{font:700 1.8rem var(--disp);text-transform:uppercase;margin:.2rem 0 .4rem}
+.kx-sub{color:#d8cce0;margin-bottom:1.4rem;max-width:40rem}
+.kx-top{display:grid;grid-template-columns:1.25fr 1fr;gap:1.6rem;align-items:center}
+.kx-main{position:relative;margin:0}
+.kx-main>img{width:100%;display:block;border:1px solid var(--line);box-shadow:0 12px 40px rgba(0,0,0,.5),0 0 34px -10px var(--org)}
+.kx-logo{position:absolute;right:-.8rem;bottom:-1.4rem;width:46%;border:2px solid var(--org);background:#000;transform:rotate(2.5deg);box-shadow:0 10px 30px rgba(0,0,0,.65)}
+.kx-logo img{width:100%;display:block}.kx-logo span{display:block;padding:.3rem .5rem;font:400 .58rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--org);background:#0b0612}
+.kx-pts{list-style:none;display:grid;gap:.9rem}
+.kx-pts li{padding-left:1rem;border-left:2px solid var(--org);color:#d8cce0;font-size:.98rem}
+.kx-pts b{display:block;font:400 .66rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--org);margin-bottom:.15rem}
+.kx-row{display:grid;grid-template-columns:2.23fr 1.15fr 1.285fr;gap:.9rem;margin-top:3rem;align-items:start}
+.kx-row img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+.kx-row figure{margin:0}.kx-row figcaption{margin-top:.35rem;font:400 .6rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.kx-note{margin-top:1.6rem;line-height:1.6;font:400 .66rem var(--mono);letter-spacing:.1em;color:var(--mute)}
+@media(max-width:900px){.kx-top{grid-template-columns:1fr}.kx-row{grid-template-columns:1fr 1fr;align-items:start}.kx-row figure:first-child{grid-column:1/-1}.kx-logo{width:52%}.kx-pts{margin-top:1.6rem}}
 @media(max-width:900px){.pit{grid-template-columns:1fr}.sticker{max-width:170px}}
 @media(max-width:900px){.mini,#deck .deck{justify-self:stretch;max-width:none}.bay{grid-template-columns:repeat(2,1fr)}.msil{width:130px;right:3.2rem;opacity:.2}}
 @media(max-width:900px){
@@ -298,6 +315,29 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
       <div class="pills"><span class="pill">Karting</span><span class="pill">3D modelling</span><span class="pill">Sim racing · ACC</span><span class="pill">Mechanical tinkering</span><span class="pill">Future pilot</span></div>
       <div class="snaps"><img src="img/kart-a.webp" alt="Karting" loading="lazy"><img src="img/kart-b.webp" alt="Karting" loading="lazy"><img src="img/kart-c.webp" alt="Karting" loading="lazy"></div>
     </div>
+  </div>
+  <div class="p kmhx fi">
+    <div class="m" style="color:var(--org)">Team KMH · Design-competition entry</div>
+    <h3>The Repair-First Screwdriver</h3>
+    <p class="kx-sub">A smart screwdriver that works out the right bit and the right torque, so anyone can fix their own things. Built around EU right-to-repair, and designed to come apart.</p>
+    <div class="kx-top">
+      <figure class="kx-main">
+        <img src="img/screwdriver-main.webp" alt="CAD render of the Repair-First Screwdriver: black and orange handle with a long magnetic bit" loading="lazy">
+        <div class="kx-logo"><img src="img/kmh-handle.webp" alt="The KMH logo printed on the screwdriver handle" loading="lazy"><span>The KMH mark, on the handle</span></div>
+      </figure>
+      <ul class="kx-pts">
+        <li><b>Scan</b>The app reads each screw's torque from its repair tag and sends it to the tool.</li>
+        <li><b>Recognise</b>An IR laser probe reads which bit a screw needs. Each magnetic bit has its own wire resistance, so the tool knows what is fitted.</li>
+        <li><b>Always ready</b>No screen. USB-C and one Bluetooth button, plus a hand dial for torque on a flat battery.</li>
+        <li><b>Built to come apart</b>End cap, body, motor, PCB and battery are held by screws, not glue.</li>
+      </ul>
+    </div>
+    <div class="kx-row">
+      <figure><img src="img/screwdriver-exploded.webp" alt="Exploded view: magnetic bit, torque clutch, internal wiring, PCB and battery pack, spinning end cap" loading="lazy"><figcaption>Exploded view</figcaption></figure>
+      <figure><img src="img/screwdriver-parts.webp" alt="Bluetooth button, USB-C charging port and motor inside the body" loading="lazy"><figcaption>Controls and motor</figcaption></figure>
+      <figure><img src="img/screwdriver-probe.webp" alt="IR laser probe bit" loading="lazy"><figcaption>IR laser probe bit</figcaption></figure>
+    </div>
+    <p class="kx-note">KMH Group is our initials, and when we work separately, as here, we still put the mark on our work. PCB, battery, motor, clutch and wiring in the model are placeholders.</p>
   </div>
 
 </section>
