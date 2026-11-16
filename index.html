@@ -228,7 +228,7 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
       <div class="co up" style="left:84%;top:44%"><i></i><span>Status LED</span></div>
       <div class="co l" style="left:44%;top:74%"><i></i><span>3D-printed frame</span></div>
     </div>
-    <figcaption class="cap m"><span>Specimen · <b>Reaction-wheel cube</b></span><span>~€82 · balances on one corner</span></figcaption>
+    <figcaption class="cap m"><span>Specimen · <b>Reaction-wheel cube</b></span><span>~€82 · balances on one side</span></figcaption>
   </figure>
 </div>
 
@@ -406,12 +406,12 @@ const SIL = {
 const HL = {
   kart: ['32 parts', 'Fully constrained SolidWorks assembly · 102.7 kg · team of three'],
   tesla: ['4 cm sparks', 'From a 220 V wall outlet · high-school build with a friend · €282'],
-  cube: ['1 wheel', 'One flywheel balances it on a corner · ~€82'],
+  cube: ['1 wheel', 'One flywheel balances it on one side · ~€82'],
   stock: ['50%+', 'Win rate on my trading signals · 60-day backtest, 3 trades a day']
 };
-const TH = {cube: 'img/cube-a.webp'}, GAL = {cube: ['img/cube-b.webp', 'img/cube-c.webp', 'img/cube-a.webp']};
+const TH = {cube: 'img/cube-a.webp', tesla: 'img/tesla-a.webp', kart: 'img/gokart-a.webp'}, GAL = {cube: ['img/cube-b.webp', 'img/cube-c.webp', 'img/cube-a.webp'], tesla: ['img/tesla-b.webp', 'img/tesla-c.webp', 'img/tesla-d.webp'], kart: ['img/gokart-b.webp', 'img/gokart-c.webp', 'img/gokart-a.webp']};
 const kind = p => { const i = (p.id || '').toLowerCase(); return /kart/.test(i) ? 'kart' : /tesla|coil/.test(i) ? 'tesla' : /cube|balanc/.test(i) ? 'cube' : 'stock'; };
-const NOTES = {'fia-compliant-hobby-kart': '32 parts, every one constrained', 'spark-gap-tesla-coil': 'first prototype failed. rebuilt it.', 'self-balancing-reaction-wheel-cube': 'balances on one corner. that\'s the hero →'};
+const NOTES = {'fia-compliant-hobby-kart': '32 parts, every one constrained', 'spark-gap-tesla-coil': 'first prototype failed. rebuilt it.', 'self-balancing-reaction-wheel-cube': 'balances on one side. that\'s the hero →'};
 async function loadProjects() {
   try {
     const names = await (await fetch('projects/index.json')).json();
