@@ -1,0 +1,60 @@
+{
+  "id": "repair-first-screwdriver",
+  "tag": "Product Design · Mechatronics · Right-to-Repair",
+  "title": "The Repair-First Screwdriver",
+  "summary": "A smart screwdriver concept that works out the right bit and the right torque for every screw, so anyone can fix their own things. The app reads each fastener's torque from the product's repair tag, an IR laser probe identifies the bit, and the whole tool is designed to come apart with screws instead of glue. Entered in the PLM Innovators Design Contest 2026 under the KMH Group mark.",
+  "details": "EU right-to-repair rules (Directive 2024/1799) and Digital Product Passports are pushing people towards fixing their own products. In that future, manufacturers add a QR code or similar tag to every product that links to its repair data, including the torque for each fastener. This project asks what the tool in your hand should do with that information, and the answer is a screwdriver that acts on it directly.\n\nHow it works: the app scans the repair tag and sends each screw's torque to the tool over Bluetooth. An IR laser probe reads which bit a screw needs, and every swappable magnetic bit carries its own wire resistance, so the tool recognises whichever bit is fitted. The motor then sets the clutch torque, or drives the screw at that torque. There is no screen: just USB-C charging and a single Bluetooth button, with everything else in the app. A hand dial sets the torque manually so the tool still works fully on a flat battery, and the end cap spins freely.\n\nA repair tool should be repairable itself, so the end cap, body, motor, PCB and battery are held by screws, not glue. Any part can be replaced, repaired or recycled. The PCB, battery, motor, clutch and wiring in the CAD model are representative placeholders that show the layout and how the tool comes apart; a final product would have its own custom-shaped components. The tool carries the KMH mark, made from the initials of Kristjan, Mikk and Hendrik, who enter design competitions together.\n\nThe concept came after about a month of thinking about what to enter, and then the whole entry (idea, complete CAD model, renders and presentation board) came together in two very stressful 48 hours. Diamonds are made under pressure, after all. The full write-up includes the contest board and photos from the day.",
+  "specs": [
+    {
+      "key": "Contest",
+      "value": "PLM Innovators Design Contest 2026"
+    },
+    {
+      "key": "Build Time",
+      "value": "48 hours (after ~1 month of thinking)"
+    },
+    {
+      "key": "Bit Recognition",
+      "value": "IR laser probe + per-bit wire resistance"
+    },
+    {
+      "key": "Torque Source",
+      "value": "Repair tag via app, or hand dial"
+    },
+    {
+      "key": "Interface",
+      "value": "1 Bluetooth button, USB-C, no screen"
+    },
+    {
+      "key": "Assembly",
+      "value": "5 modules held by screws, no glue"
+    },
+    {
+      "key": "Regulation",
+      "value": "EU Directive 2024/1799 + DPP"
+    },
+    {
+      "key": "Status",
+      "value": "3D CAD concept, placeholder internals"
+    }
+  ],
+  "pills": [
+    "Right to Repair",
+    "Design for Disassembly",
+    "Product Design",
+    "3D CAD",
+    "IR Sensing",
+    "Bluetooth",
+    "Digital Product Passport"
+  ],
+  "links": [
+    {
+      "label": "Report (PDF)",
+      "url": "files/Repair_First_Screwdriver_Portfolio.pdf"
+    },
+    {
+      "label": "Contest board",
+      "url": "img/driver-board.webp"
+    }
+  ]
+}
