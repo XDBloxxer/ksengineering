@@ -41,10 +41,10 @@ h1{font:700 clamp(3rem,7.4vw,6.2rem)/.92 var(--disp);text-transform:uppercase;le
 .btns{display:flex;gap:.8rem;flex-wrap:wrap}
 .btn{font:400 .8rem var(--mono);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:#14080a;background:linear-gradient(100deg,var(--warm),var(--org));padding:.8rem 1.4rem;border:0;cursor:pointer;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);transition:filter .2s,transform .2s;display:inline-block}
 .btn:hover:not(:disabled){filter:brightness(1.15) drop-shadow(0 0 10px var(--org));transform:translateY(-2px)}
-.btn.o{background:var(--line);color:var(--warm)}
+.btn.o{background:rgba(40,20,10,.88);color:var(--warm)}
 .btn:disabled{opacity:.35;cursor:not-allowed}
 .tele{display:grid;grid-template-columns:repeat(3,auto);gap:.4rem 1.8rem;margin-top:2.2rem;padding-top:1rem;border-top:1px solid var(--line);justify-content:start}
-.tele small{display:block;color:var(--mute);font-size:.6rem}.tele b{font:400 .85rem var(--mono);color:var(--warm);font-weight:400}
+.tele{text-shadow:0 0 8px #05030a,0 0 14px #05030a}.tele small{display:block;color:#c9bdd2;font-size:.6rem}.tele b{font:400 .85rem var(--mono);color:var(--warm);font-weight:400}
 
 .deck{padding:.7rem}
 .dh{display:flex;justify-content:space-between;gap:.5rem;color:var(--mute);padding:0 .3rem .6rem;flex-wrap:wrap}
@@ -215,7 +215,7 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
 .co span::before{content:'';position:absolute;right:100%;top:50%;width:2.2rem;height:1px;background:var(--org)}
 .co.up span{left:-2.4rem;top:-2.2rem}.co.up span::before{display:none}
 .co.l span{left:auto;right:2.6rem}.co.l span::before{right:auto;left:100%}
-.spec .cap{position:absolute;left:0;right:0;bottom:-.4rem;display:flex;justify-content:space-between;color:var(--mute);font-size:.62rem}.spec .cap b{color:var(--org);font-weight:400}
+.spec .cap{position:absolute;left:0;right:0;bottom:-.4rem;display:flex;justify-content:space-between;color:var(--mute);font-size:.62rem}.spec .cap b{color:var(--org);font-weight:400}.spec .cap{text-shadow:0 0 8px #05030a,0 0 14px #05030a}.spec .cap>*{background:rgba(8,4,16,.6);padding:.1rem .4rem}
 .has-th .sil{display:none}
 .th.wide{height:auto;object-fit:contain;background:#0a0f0d}
 .mgal.stack{flex-direction:column}.mgal.stack img{height:auto;flex:none;width:100%}
@@ -260,7 +260,7 @@ footer{margin-top:6rem;border-top:1px solid var(--line);background:rgba(5,3,10,.
 </style>
 </head>
 <body>
-<canvas id="bg"></canvas><div class="flare"></div><canvas id="sky"></canvas>
+<canvas id="bg"></canvas><canvas id="sky"></canvas>
 <nav>
   <a class="logo" href="#top">KS<b>//</b>ENG</a>
   <ul><li><a href="#deck">Deck</a></li><li><a href="#about">Crew</a></li><li><a href="#projects">Missions</a></li><li><a href="#skills">Systems</a></li><li><a href="#plan">Flight plan</a></li><li><a href="#adventures">Adventures</a></li><li><a href="#contact">Comms</a></li></ul>
@@ -821,14 +821,17 @@ loadProjects();
     cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); c.setTransform(dpr, 0, 0, dpr, 0, 0);
     c.fillStyle = '#05030a'; c.fillRect(0, 0, W, H);
     nebula(W, H); farStars(W, H);
-    const sR = Math.max(Math.min(W, H) * .16, 90), sx = W * .045, sy = H * .985;
+    const sR = Math.max(Math.min(W, H) * .13, 80), sx = W * .0, sy = H * 1.03;
     star(W, H, dpr, sx, sy, sR);
     const pR = Math.max(W * .14, Math.min(W, H) * .2);
-    planet(W, H, dpr, sx, sy, pR, W - W * .06, H * .34 + pR);
+    planet(W, H, dpr, sx, sy, pR, W * 1.0, H * .26 + pR);
   };
   paint();
   addEventListener('resize', () => { clearTimeout(timer); timer = setTimeout(paint, 180); });
 })();
+
+// dim backdrop after the hero so content stays readable
+addEventListener('scroll', () => { document.getElementById('bg').style.opacity = 1 - Math.min(scrollY / innerHeight, 1) * .55; }, {passive: true});
 
 // ── Twinkling starfield + drifting astrophage ──
 (() => {
@@ -838,7 +841,7 @@ loadProjects();
   rs(); addEventListener('resize', rs);
   const pal = [[205, 215, 255], [255, 250, 245], [255, 214, 170], [190, 200, 255], [255, 190, 140]];
   for (let i = 0; i < 300; i++) st.push({x: Math.random(), y: Math.random(), z: .2 + Math.random() * .8, p: Math.random() * 6, c: pal[Math.floor(Math.random() * pal.length)], b: i % 40 === 0});
-  for (let i = 0; i < 34; i++) ap.push({x: Math.random(), y: Math.random(), vx: (Math.random() - .5) * .00004, vy: -.00002 - Math.random() * .00005, s: 1 + Math.random() * 2});
+  for (let i = 0; i < 18; i++) ap.push({x: Math.random(), y: Math.random(), vx: (Math.random() - .5) * .00004, vy: -.00002 - Math.random() * .00005, s: 1 + Math.random() * 2});
   const draw = t => {
     c.clearRect(0, 0, W, H);
     for (const s of st) {
@@ -857,7 +860,7 @@ loadProjects();
     for (const a of ap) {
       a.x = (a.x + a.vx * 16 + 1) % 1; a.y = (a.y + a.vy * 16 + 1) % 1;
       const g = c.createRadialGradient(a.x * W, a.y * H, 0, a.x * W, a.y * H, a.s * 5);
-      g.addColorStop(0, 'rgba(255,70,30,.8)'); g.addColorStop(1, 'rgba(255,70,30,0)');
+      g.addColorStop(0, 'rgba(255,100,70,.55)'); g.addColorStop(1, 'rgba(255,100,70,0)');
       c.fillStyle = g; c.fillRect(a.x * W - a.s * 5, a.y * H - a.s * 5, a.s * 10, a.s * 10);
     }
     c.globalCompositeOperation = 'source-over';
