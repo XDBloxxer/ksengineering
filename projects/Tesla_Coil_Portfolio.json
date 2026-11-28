@@ -44,5 +44,6 @@
       "label": "Report (PDF)",
       "url": "files/Tesla_Coil_Portfolio.pdf"
     }
-  ]
+  ],
+  "sim": "tesla"
 }
