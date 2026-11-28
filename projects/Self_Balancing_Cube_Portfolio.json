@@ -48,5 +48,6 @@
       "label": "Report (PDF)",
       "url": "files/Self_Balancing_Cube_Portfolio.pdf"
     }
-  ]
+  ],
+  "sim": "cube"
 }
