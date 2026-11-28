@@ -52,5 +52,6 @@
       "label": "Report (PDF)",
       "url": "files/EOS_Drone_Portfolio.pdf"
     }
-  ]
+  ],
+  "sim": "drone"
 }
