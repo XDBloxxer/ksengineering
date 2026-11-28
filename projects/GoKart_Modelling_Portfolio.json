@@ -44,5 +44,6 @@
       "label": "Report (PDF)",
       "url": "files/GoKart_Modelling_Portfolio.pdf"
     }
-  ]
+  ],
+  "sim": "kart"
 }
