@@ -58,5 +58,6 @@
       "label": "Report (PDF)",
       "url": "files/ml_stock_predictor_portfolio.pdf"
     }
-  ]
+  ],
+  "sim": "stock"
 }
